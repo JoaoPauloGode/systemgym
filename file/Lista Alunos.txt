@@ -1,0 +1,15 @@
+Aluno :as
+Telefone: as
+Endereço: as
+ID: 0
+=============================================
+Aluno :joao
+Telefone: 54565656565
+Endereço: bbbbb
+ID: 1
+=============================================
+Aluno :joa paulo
+Telefone: 5454545454
+Endereço: iguaraci
+ID: 2
+=============================================

@@ -1,0 +1,16 @@
+<ListaDeAlunos>
+  <listaAlunos>
+    <Alunos>
+      <nome>as</nome>
+      <endereco>as</endereco>
+      <telefone>as</telefone>
+      <id>0</id>
+    </Alunos>
+    <Alunos>
+      <nome>joao</nome>
+      <endereco>bb</endereco>
+      <telefone>84545454</telefone>
+      <id>1</id>
+    </Alunos>
+  </listaAlunos>
+</ListaDeAlunos>
