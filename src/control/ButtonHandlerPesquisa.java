@@ -4,7 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import model.Escritora;
+import dao.EscreverXML;
+import dao.Escritora;
 import model.ListaDeAlunos;
 import view.TelaPesquisaAluno;
 

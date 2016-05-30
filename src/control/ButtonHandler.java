@@ -55,7 +55,7 @@ public class ButtonHandler implements MouseListener {
 		}else if(e.getSource()==telainicial.getListarAlunoButton()) {
 
 			try {
-				java.awt.Desktop.getDesktop().open(new File("D:\\Workspace2\\System-gym2Xml\\file\\Lista Alunos.txt"));
+				java.awt.Desktop.getDesktop().open(new File("file\\Lista Alunos.txt"));
 
 			} catch (IOException e1) {
 				e1.printStackTrace();

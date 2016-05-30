@@ -5,7 +5,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 @XStreamAlias("Alunos")
 public class Aluno {
 
-	private String nome, endereco, telefone;
+	private String nome, endereco, telefone, CPF;
 	private int id;
 	private double saldoDevedor;
 	
@@ -13,11 +13,12 @@ public class Aluno {
 		
 	}
 
-	public Aluno(String nome, String endereco, String telefone, double saldoDevedor) {
+	public Aluno(String nome, String endereco, String telefone, String CPF, double saldoDevedor) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
+		this.CPF=CPF;
 		this.saldoDevedor=saldoDevedor;
 	}
 	
@@ -47,6 +48,10 @@ public class Aluno {
 
 	public void setSaldoDevedor(double saldoDevedor) {
 		this.saldoDevedor = saldoDevedor;
+	}
+
+	public String getCPF() {
+		return CPF;
 	}
 
 }

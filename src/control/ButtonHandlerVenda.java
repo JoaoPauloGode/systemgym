@@ -6,7 +6,8 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
-import model.Escritora;
+import dao.EscreverXML;
+import dao.Escritora;
 import model.ListaDeAlunos;
 import view.TelaVenda;
 

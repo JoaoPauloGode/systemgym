@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerVenda;
-import control.EscreverXML;
+import dao.EscreverXML;
 import model.ListaDeAlunos;
 
 public class TelaVenda extends JFrame {

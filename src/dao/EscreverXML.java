@@ -1,4 +1,4 @@
-package control;
+package dao;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,7 +27,7 @@ public class EscreverXML {
 	public ArrayList<Aluno> buscarXML() {
 		ListaDeAlunos listaDeAlunos=new ListaDeAlunos();
 		try {
-			FileReader ler = new FileReader(new File("D:\\Workspace2\\System-gym2Xml\\file\\listaDeAlunos.xml"));
+			FileReader ler = new FileReader(new File("file\\listaDeAlunos.xml"));
 
 			XStream xstream = new XStream(new DomDriver());
 
@@ -52,7 +52,7 @@ public class EscreverXML {
 		PrintWriter print = null;
 
 		try {
-			File file = new File("D:\\Workspace2\\System-gym2Xml\\file\\listaDeAlunos.xml");
+			File file = new File("file\\listaDeAlunos.xml");
 
 			print = new PrintWriter(file);
 
