@@ -1,16 +1,28 @@
 <ListaDeAlunos>
   <listaAlunos>
     <Alunos>
-      <nome>as</nome>
-      <endereco>as</endereco>
-      <telefone>as</telefone>
-      <id>0</id>
-    </Alunos>
-    <Alunos>
       <nome>joao</nome>
       <endereco>bb</endereco>
-      <telefone>84545454</telefone>
+      <telefone>(87)9.8861-4258</telefone>
+      <CPF>107.310.874-02</CPF>
+      <id>0</id>
+      <saldoDevedor>0.0</saldoDevedor>
+    </Alunos>
+    <Alunos>
+      <nome>junior</nome>
+      <endereco>bb</endereco>
+      <telefone>(87)9.8842-0351</telefone>
+      <CPF>120.096.274-58</CPF>
       <id>1</id>
+      <saldoDevedor>0.0</saldoDevedor>
+    </Alunos>
+    <Alunos>
+      <nome>jessica</nome>
+      <endereco>iguaraci</endereco>
+      <telefone>(87)9.5555-5555</telefone>
+      <CPF>000.000.000-00</CPF>
+      <id>2</id>
+      <saldoDevedor>0.0</saldoDevedor>
     </Alunos>
   </listaAlunos>
 </ListaDeAlunos>

@@ -60,6 +60,7 @@ public class TelaPagamento extends JFrame {
 		pagarButton.addActionListener(handlerPagamento);		
 		setSize(500, 500);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		setVisible(true);
 	}
 

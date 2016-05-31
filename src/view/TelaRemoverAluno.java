@@ -49,6 +49,7 @@ public class TelaRemoverAluno extends JFrame {
 		
 		setSize(500, 500);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		setVisible(true);
 	}
 	

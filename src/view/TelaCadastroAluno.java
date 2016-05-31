@@ -76,6 +76,7 @@ public class TelaCadastroAluno extends JFrame {
 		cadastroRealizaAlunoButton.addActionListener(handlerAluno);
 		setSize(500, 500);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		setVisible(true);
 	}
 	

@@ -2,15 +2,15 @@ package model;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+import view.TelaPesquisaAluno;
 import view.TelaVenda;
 @XStreamAlias("ListaDeAlunos")
 public class ListaDeAlunos {
 
 	TelaVenda telaVenda;
+	TelaPesquisaAluno telaPesquisaAluno;
 
 	public ArrayList<Aluno>listaAlunos=new ArrayList<>();
 
@@ -18,7 +18,7 @@ public class ListaDeAlunos {
 		super();
 		this.listaAlunos = listaAlunos;
 	}
-
+	
 	public ListaDeAlunos() {
 		super();
 	}
@@ -37,16 +37,6 @@ public class ListaDeAlunos {
 		}
 	}
 	
-	public void pesquisa(String nome) {
-		for(int i=0; i<listaAlunos.size(); i++) {
-			if(listaAlunos.contains(listaAlunos.get(i).getNome())) {
-				JOptionPane.showMessageDialog(null, "Aluno Cadastrado");
-			}else {
-				JOptionPane.showMessageDialog(null, "Aluno Não Encontrado");
-			}
-		}
-	}
-
 	public void debitar(double debito, int id) {
 			listaAlunos.get(id).setSaldoDevedor(listaAlunos.get(id).getSaldoDevedor()+debito);
 	}

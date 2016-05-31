@@ -1,15 +1,21 @@
-Aluno :as
-Telefone: as
-Endereço: as
-ID: 0
-=============================================
 Aluno :joao
-Telefone: 54565656565
-Endereço: bbbbb
-ID: 1
+Telefone: (87)9.8861-4258
+Endereço: bb
+CPF: 107.310.874-02
+ID: 0
+Saldo Devedor: 0.0
 =============================================
-Aluno :joa paulo
-Telefone: 5454545454
+Aluno :junior
+Telefone: (87)9.8842-0351
+Endereço: bb
+CPF: 120.096.274-58
+ID: 1
+Saldo Devedor: 0.0
+=============================================
+Aluno :jessica
+Telefone: (87)9.5555-5555
 Endereço: iguaraci
+CPF: 000.000.000-00
 ID: 2
+Saldo Devedor: 0.0
 =============================================

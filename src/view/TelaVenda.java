@@ -61,6 +61,7 @@ public class TelaVenda extends JFrame {
 		
 		setSize(500, 500);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		setVisible(true);
 	}
 

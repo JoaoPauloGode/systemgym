@@ -44,6 +44,7 @@ public class ButtonHandlerCadastroAluno implements ActionListener {
 			telaCadastroAluno.getNomeField().setText("");
 			telaCadastroAluno.getTelefoneFormatField().setText("");
 			telaCadastroAluno.getEnderecoField().setText("");
+			telaCadastroAluno.getCpfFormatField().setText("");
 
 			JOptionPane.showMessageDialog(null, "Aluno cadastrado");
 		}
