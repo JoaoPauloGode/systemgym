@@ -20,7 +20,7 @@ public class TelaInicial extends JFrame {
 	
 	private JLabel telaFundoLabel;
 	private JButton cadastrarAlunoButton, removerAlunoButton, listarAlunoButton, pesquisarAlunoButton,
-	realizarVendaButton, listarMensalidadesButton, quitarMensalidadeButton;
+	realizarVendaButton, realizarPagamentoButton, listarMensalidadesButton, quitarMensalidadeButton;
 	private JRadioButton alunoRadioButton, mensalidadeRadioButton, vendaRadioButton;
 	private ButtonGroup bg;
 	
@@ -33,6 +33,7 @@ public class TelaInicial extends JFrame {
 	ButtonHandler handlerRemAl;
 	ButtonHandler handlerListAl;
 	ButtonHandler handlervenda;
+	ButtonHandler handlerPagamento;
 	ButtonHandler handlerPesquisa;
 	
 	public TelaInicial() {
@@ -44,6 +45,7 @@ public class TelaInicial extends JFrame {
 		handlerRemAl=new ButtonHandler(this, listaAlunos);
 		handlerListAl=new ButtonHandler(this);
 		handlervenda=new ButtonHandler(this);
+		handlerPagamento=new ButtonHandler(this);
 		handlerPesquisa=new ButtonHandler(this);
 		
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
@@ -53,15 +55,15 @@ public class TelaInicial extends JFrame {
 		 */
 		alunoRadioButton=new JRadioButton("Aluno");
 		mensalidadeRadioButton=new JRadioButton("Mensalidade");
-		vendaRadioButton=new JRadioButton("Venda");
+		vendaRadioButton=new JRadioButton("Venda/Pagamento");
 		
 		telaFundoLabel.add(alunoRadioButton);
 		telaFundoLabel.add(mensalidadeRadioButton);
 		telaFundoLabel.add(vendaRadioButton);
 		
-		alunoRadioButton.setBounds(20, 20, 120, 30);
-		mensalidadeRadioButton.setBounds(20, 60, 120, 30);
-		vendaRadioButton.setBounds(20, 100, 120, 30);
+		alunoRadioButton.setBounds(20, 20, 135, 30);
+		mensalidadeRadioButton.setBounds(20, 60, 135, 30);
+		vendaRadioButton.setBounds(20, 100, 135, 30);
 		
 		bg=new ButtonGroup();
 		bg.add(alunoRadioButton);
@@ -105,10 +107,16 @@ public class TelaInicial extends JFrame {
 		listarMensalidadesButton.setVisible(false);
 		//=================================================================
 		realizarVendaButton=new JButton("Efetuar Venda");
+		realizarPagamentoButton=new JButton("Efetuar Pagamento");
 		
 		telaFundoLabel.add(realizarVendaButton);
+		telaFundoLabel.add(realizarPagamentoButton);
+		
 		realizarVendaButton.setBounds(340, 420, 150, 30);
+		realizarPagamentoButton.setBounds(340, 380, 150, 30);
+		
 		realizarVendaButton.setVisible(false);
+		realizarPagamentoButton.setVisible(false);
 		
 		/**
 		 * ================================================================
@@ -122,6 +130,7 @@ public class TelaInicial extends JFrame {
 		removerAlunoButton.addMouseListener(handlerRemAl);
 		listarAlunoButton.addMouseListener(handlerListAl);
 		realizarVendaButton.addMouseListener(handlervenda);
+		realizarPagamentoButton.addMouseListener(handlerPagamento);
 		pesquisarAlunoButton.addMouseListener(handlerPesquisa);
 		
 		setSize(500, 500);
@@ -173,6 +182,14 @@ public class TelaInicial extends JFrame {
 
 	public void setRealizarVendaButton(JButton realizarVendaButton) {
 		this.realizarVendaButton = realizarVendaButton;
+	}
+
+	public JButton getRealizarPagamentoButton() {
+		return realizarPagamentoButton;
+	}
+
+	public void setRealizarPagamentoButton(JButton realizarPagamentoButton) {
+		this.realizarPagamentoButton = realizarPagamentoButton;
 	}
 
 	public JButton getListarMensalidadesButton() {

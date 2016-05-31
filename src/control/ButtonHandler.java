@@ -8,6 +8,7 @@ import java.io.IOException;
 import model.ListaDeAlunos;
 import view.TelaCadastroAluno;
 import view.TelaInicial;
+import view.TelaPagamento;
 import view.TelaPesquisaAluno;
 import view.TelaRemoverAluno;
 import view.TelaVenda;
@@ -18,6 +19,7 @@ public class ButtonHandler implements MouseListener {
 	TelaCadastroAluno telaCadastroAluno;
 	TelaRemoverAluno telaRemoverAluno;
 	TelaVenda telaVenda;
+	TelaPagamento telaPagamento;
 	TelaPesquisaAluno telaPesquisaAluno;
 	ListaDeAlunos listaAlunos;
 
@@ -42,6 +44,10 @@ public class ButtonHandler implements MouseListener {
 		this.telaVenda=telaVenda;
 	}
 	
+	public ButtonHandler(TelaPagamento telaPagamento) {
+		this.telaPagamento=telaPagamento;
+	}
+	
 	public ButtonHandler(TelaPesquisaAluno telapesquisaAluno) {
 		this.telaPesquisaAluno=telapesquisaAluno;
 	}
@@ -62,6 +68,8 @@ public class ButtonHandler implements MouseListener {
 			}
 		}else if(e.getSource()==telainicial.getRealizarVendaButton()) {
 			new TelaVenda();
+		}else if(e.getSource()==telainicial.getRealizarPagamentoButton()) {
+			new TelaPagamento();
 		}else if(e.getSource()==telainicial.getPesquisarAlunoButton()) {
 			new TelaPesquisaAluno();
 		}

@@ -35,11 +35,13 @@ public class RadioButtonHandler implements ActionListener {
 			telaInicial.getQuitarMensalidadeButton().setVisible(false);
 			telaInicial.getListarMensalidadesButton().setVisible(false);
 			
-		}if(telaInicial.getVendaRadioButton().isSelected()) {
+		}if(telaInicial.getVendaRadioButton().isSelected()==true) {
 			telaInicial.getRealizarVendaButton().setVisible(true);
+			telaInicial.getRealizarPagamentoButton().setVisible(true);
 			
 		}else if(telaInicial.getRealizarVendaButton().isSelected()==false) {
 			telaInicial.getRealizarVendaButton().setVisible(false);
+			telaInicial.getRealizarPagamentoButton().setVisible(false);
 		}
 		
 	}

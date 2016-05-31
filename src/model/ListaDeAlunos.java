@@ -51,6 +51,10 @@ public class ListaDeAlunos {
 			listaAlunos.get(id).setSaldoDevedor(listaAlunos.get(id).getSaldoDevedor()+debito);
 	}
 	
+	public void quitar(double valor, int id) {
+		listaAlunos.get(id).setSaldoDevedor(listaAlunos.get(id).getSaldoDevedor()-valor);
+	}
+	
 	public ArrayList<Aluno> getListaAlunos() {
 		return listaAlunos;
 	}
