@@ -25,19 +25,27 @@ public class ButtonHandlerPagamento implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==telaPagamento.getPagarButton()) {
 
-			try {
-				EscreverXML reescrever=new EscreverXML(listaDeAlunos);
-				listaDeAlunos.setListaAlunos(reescrever.buscarXML());
-				listaDeAlunos.quitar(Double.parseDouble(telaPagamento.getValorField().getText()), Integer.parseInt(telaPagamento.getIdField().getText()));
-				Escritora.escrever(listaDeAlunos);
-				reescrever.gerarXML();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			if(telaPagamento.getIdField().getText().equals("")||telaPagamento.getValorField().getText().equals("")) {
+				JOptionPane.showMessageDialog(null, "Campo(s) em branco");
+			}else {
+
+				try {
+					EscreverXML reescrever=new EscreverXML(listaDeAlunos);
+					listaDeAlunos.setListaAlunos(reescrever.buscarXML());
+					listaDeAlunos.quitar(Double.parseDouble(telaPagamento.getValorField().getText()), Integer.parseInt(telaPagamento.getIdField().getText()));
+					Escritora.escrever(listaDeAlunos);
+					reescrever.gerarXML();
+					JOptionPane.showMessageDialog(null, "Pagamento Efetuado");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (java.lang.IndexOutOfBoundsException e2) {
+					e2.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Estouro!, ID excede o número de alunos");
+				} 
 			}
 			telaPagamento.getIdField().setText("");
 			telaPagamento.getValorField().setText("");
-			JOptionPane.showMessageDialog(null, "Pagamento Efetuado");
 		}
 	}
 }

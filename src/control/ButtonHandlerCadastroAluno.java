@@ -28,17 +28,24 @@ public class ButtonHandlerCadastroAluno implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==telaCadastroAluno.getCadastroRealizaAlunoButton()) {
 
-			try {
+			if(telaCadastroAluno.getNomeField().getText().equals("")||telaCadastroAluno.getEnderecoField().getText().equals("")
+					||telaCadastroAluno.getTelefoneFormatField().getText().equals("(  ) .    -    ")||telaCadastroAluno.getCpfFormatField().getText().equals("   .   .   -  ")) {
+				JOptionPane.showMessageDialog(null, "Campo(s) em branco");
+			}else {
 
-				EscreverXML escrever = new EscreverXML(listaAlunos);
-				listaAlunos.setListaAlunos(escrever.buscarXML());
-				listaAlunos.add(new Aluno(telaCadastroAluno.getNomeField().getText(), telaCadastroAluno.getEnderecoField().getText(), telaCadastroAluno.getTelefoneFormatField().getText(),telaCadastroAluno.getCpfFormatField().getText() , 0));
+				try {
 
-				Escritora.escrever(listaAlunos);
-				escrever.gerarXML();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+					EscreverXML escrever = new EscreverXML(listaAlunos);
+					listaAlunos.setListaAlunos(escrever.buscarXML());
+					listaAlunos.add(new Aluno(telaCadastroAluno.getNomeField().getText(), telaCadastroAluno.getEnderecoField().getText(), telaCadastroAluno.getTelefoneFormatField().getText(),telaCadastroAluno.getCpfFormatField().getText() , 0));
+
+					Escritora.escrever(listaAlunos);
+					escrever.gerarXML();
+					JOptionPane.showMessageDialog(null, "Aluno cadastrado");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 
 			telaCadastroAluno.getNomeField().setText("");
@@ -46,7 +53,6 @@ public class ButtonHandlerCadastroAluno implements ActionListener {
 			telaCadastroAluno.getEnderecoField().setText("");
 			telaCadastroAluno.getCpfFormatField().setText("");
 
-			JOptionPane.showMessageDialog(null, "Aluno cadastrado");
 		}
 	}
 

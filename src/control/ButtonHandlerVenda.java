@@ -25,19 +25,27 @@ public class ButtonHandlerVenda implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==telaVenda.getDebitarButton()) {
 
-			try {
-				EscreverXML reescrever=new EscreverXML(listaDeAlunos);
-				listaDeAlunos.setListaAlunos(reescrever.buscarXML());
-				listaDeAlunos.debitar(Double.parseDouble(telaVenda.getValorField().getText()), Integer.parseInt(telaVenda.getIdField().getText()));
-				Escritora.escrever(listaDeAlunos);
-				reescrever.gerarXML();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			if(telaVenda.getIdField().getText().equals("")||telaVenda.getValorField().getText().equals("")) {
+				JOptionPane.showMessageDialog(null, "Campo(s) em branco");
+			}else {
+
+				try {
+					EscreverXML reescrever=new EscreverXML(listaDeAlunos);
+					listaDeAlunos.setListaAlunos(reescrever.buscarXML());
+					listaDeAlunos.debitar(Double.parseDouble(telaVenda.getValorField().getText()), Integer.parseInt(telaVenda.getIdField().getText()));
+					Escritora.escrever(listaDeAlunos);
+					reescrever.gerarXML();
+					JOptionPane.showMessageDialog(null, "Venda Efetuada");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (java.lang.IndexOutOfBoundsException e2) {
+					e2.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Estouro!, ID excede o número de alunos");
+				}
 			}
 			telaVenda.getIdField().setText("");
 			telaVenda.getValorField().setText("");
-			JOptionPane.showMessageDialog(null, "Venda Efetuada");
 		}
 	}
 }
