@@ -17,7 +17,7 @@ public class TelaPesquisaAluno extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private JLabel nomeLabel, telaFundoLabel;;
-	private JFormattedTextField nomeFormatField;
+	private JFormattedTextField cpfFormatField;
 	private JButton pesquisarButton;
 
 	private ButtonHandlerPesquisa handlerPesquisa;
@@ -35,9 +35,9 @@ public class TelaPesquisaAluno extends JFrame {
 		telaFundoLabel.add(nomeLabel);
 		nomeLabel.setBounds(20, 20, 160, 30);
 
-		nomeFormatField=new JFormattedTextField(handlerPesquisa.Mascara("###.###.###-##"));
-		telaFundoLabel.add(nomeFormatField);
-		nomeFormatField.setBounds(180, 20, 130, 30);
+		cpfFormatField=new JFormattedTextField(handlerPesquisa.Mascara("###.###.###-##"));
+		telaFundoLabel.add(cpfFormatField);
+		cpfFormatField.setBounds(180, 20, 130, 30);
 
 		pesquisarButton=new JButton("Pesquisar");
 		telaFundoLabel.add(pesquisarButton);
@@ -55,8 +55,8 @@ public class TelaPesquisaAluno extends JFrame {
 		return pesquisarButton;
 	}
 
-	public JFormattedTextField getNomeFormatField() {
-		return nomeFormatField;
+	public JFormattedTextField getCpfFormatField() {
+		return cpfFormatField;
 	}
 
 }

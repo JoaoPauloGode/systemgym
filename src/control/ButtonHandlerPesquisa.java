@@ -2,22 +2,19 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
 
-import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
+import dao.CRUD;
+import model.Aluno;
 import model.ListaDeAlunos;
 import view.TelaDadosAluno;
 import view.TelaPesquisaAluno;
 
 public class ButtonHandlerPesquisa implements ActionListener {
-
+	Aluno aluno;
 	TelaPesquisaAluno telapesquisa;
 	private ListaDeAlunos lista;
-	private static int posId=0;
-	private static int i=0;
 
 	public ButtonHandlerPesquisa(TelaPesquisaAluno telapesquisa, ListaDeAlunos lista) {
 		this.telapesquisa = telapesquisa;
@@ -27,44 +24,14 @@ public class ButtonHandlerPesquisa implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==telapesquisa.getPesquisarButton()) {
+			aluno = CRUD.select(telapesquisa.getCpfFormatField().getText().replaceAll("\\D", ""));
+			telapesquisa.getCpfFormatField().setText("");
 			
-				pesquisa();
-				telapesquisa.getNomeFormatField().setText("");
+			new TelaDadosAluno(aluno);
+				
 		}
 	}
 
-	public void pesquisa() {  
-		String linha="";  
-		String cpf = telapesquisa.getNomeFormatField().getText();  
-		
-		try {  
-			
-			@SuppressWarnings("resource")
-			BufferedReader in = new BufferedReader(new FileReader("file\\Lista Alunos.txt"));  
-			while((linha = in.readLine()) != null) {  
-				i++;  
-				if(linha.lastIndexOf(cpf) > 0) {  
-					posId = (i-4)/7;
-					new TelaDadosAluno();
-					i=0;
-					break;
-					
-				}if(linha.lastIndexOf(cpf)==0) {
-					JOptionPane.showMessageDialog(null, "Aluno Não Cadastrado!");
-					i=0;
-					break;
-				}
-			} 
-			i=0;
-			if((linha = in.readLine()) == null) {
-				JOptionPane.showMessageDialog(null, "Aluno Não Cadastrado!");
-			}
-
-		} catch (Exception e) {  
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro na abertura do arquivo");  
-		}  
-	}
 
 	public MaskFormatter Mascara(String Mascara) {
 		MaskFormatter F_Mascara = new MaskFormatter();
@@ -77,14 +44,6 @@ public class ButtonHandlerPesquisa implements ActionListener {
 		return F_Mascara;
 	}
 	
-
-	public int getPosId() {
-		return posId;
-	}
-	
-	public int getI() {
-		return i;
-	}
 
 	public ListaDeAlunos getLista() {
 		return lista;

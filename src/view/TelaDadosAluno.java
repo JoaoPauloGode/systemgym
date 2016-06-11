@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerPesquisa;
+import dao.CRUD;
+import model.Aluno;
 import model.ListaDeAlunos;
 
 public class TelaDadosAluno extends JFrame {
@@ -18,12 +20,16 @@ public class TelaDadosAluno extends JFrame {
 	JTextField nomeField, telefoneField, enderecofield, cpfField, idField, saldoDevedorField;
 	
 	ListaDeAlunos listaDeAlunos;
+	Aluno aluno;
+	CRUD crud;
 	ButtonHandlerPesquisa handlerPesquisa;
 	TelaPesquisaAluno telaPesquisaAluno;
 
-	public TelaDadosAluno() {
+	public TelaDadosAluno(Aluno aluno) {
 		super("Dados Do Aluno");
-
+		
+		this.aluno=aluno;
+		
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);
 		
@@ -50,12 +56,12 @@ public class TelaDadosAluno extends JFrame {
 		idLabel.setBounds(20, 210, 180, 30);
 		saldoDevedorLabel.setBounds(20, 250, 180, 30);
 		//=====================================================================================================================		
-		nomeField=new JTextField(listaDeAlunos.listaAlunos.get(handlerPesquisa.getPosId()).getNome());
-		telefoneField=new JTextField(listaDeAlunos.listaAlunos.get(handlerPesquisa.getPosId()).getTelefone());
-		enderecofield=new JTextField(listaDeAlunos.listaAlunos.get(handlerPesquisa.getPosId()).getEndereco());
-		cpfField=new JTextField(listaDeAlunos.listaAlunos.get(handlerPesquisa.getPosId()).getCPF());
-		idField=new JTextField(""+listaDeAlunos.listaAlunos.get(handlerPesquisa.getPosId()).getId());
-		saldoDevedorField=new JTextField(""+listaDeAlunos.listaAlunos.get(handlerPesquisa.getPosId()).getSaldoDevedor());
+		nomeField=new JTextField(aluno.getNome());
+		telefoneField=new JTextField(aluno.getTelefone());
+		enderecofield=new JTextField(aluno.getEndereco());
+		cpfField=new JTextField(aluno.getCPF());
+		idField=new JTextField(aluno.getId());
+		saldoDevedorField=new JTextField(String.valueOf(aluno.getSaldoDevedor()));
 		
 		telaFundoLabel.add(nomeField);
 		telaFundoLabel.add(telefoneField);
@@ -70,6 +76,13 @@ public class TelaDadosAluno extends JFrame {
 		cpfField.setBounds(50, 170, 210, 30);
 		idField.setBounds(45, 210, 215, 30);
 		saldoDevedorField.setBounds(110, 250, 150, 30);
+		
+		nomeField.setText(aluno.getNome());
+		telefoneField.setText(aluno.getTelefone());
+		enderecofield.setText(aluno.getEndereco());
+		cpfField.setText(aluno.getCPF());
+		idField.setText(String.valueOf(aluno.getId()));
+		saldoDevedorField.setText(String.valueOf(aluno.getSaldoDevedor()));
 		
 		setSize(500, 500);
 		setLocationRelativeTo(null);

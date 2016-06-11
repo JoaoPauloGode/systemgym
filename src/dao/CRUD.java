@@ -1,11 +1,13 @@
 package dao;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
 import com.mysql.jdbc.Statement;
 
+import model.Aluno;
 import view.TelaCadastroAluno;
 import view.TelaRemoverAluno;
 
@@ -63,6 +65,29 @@ public class CRUD {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Error");
 		}
+	}
+	
+	public static Aluno select(String cpf) {
+		Aluno aluno = new Aluno();
+		try {
+			stmt =(Statement) Conexao.con.createStatement();
+			ResultSet rs=stmt.executeQuery("SELECT * FROM alunos WHERE cpf ="+cpf);
+			
+			while (rs.next()) {			
+			aluno.setId(rs.getInt("id"));
+			aluno.setNome(rs.getString("nome"));
+			aluno.setCPF(rs.getString("cpf"));
+			aluno.setTelefone(rs.getString("telefone"));
+			aluno.setEndereco(rs.getString("endereco"));
+			aluno.setSaldoDevedor(rs.getDouble("saldoDevedor"));
+			}
+		}catch(SQLException e) {
+			
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Aluno Não Cadastrado");
+		}
+		
+		return aluno;
 	}
 }
 
