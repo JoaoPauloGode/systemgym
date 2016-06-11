@@ -6,7 +6,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerPesquisa;
-import dao.EscreverXML;
 import model.ListaDeAlunos;
 
 public class TelaDadosAluno extends JFrame {
@@ -21,16 +20,12 @@ public class TelaDadosAluno extends JFrame {
 	ListaDeAlunos listaDeAlunos;
 	ButtonHandlerPesquisa handlerPesquisa;
 	TelaPesquisaAluno telaPesquisaAluno;
-	EscreverXML escreverXML;
 
 	public TelaDadosAluno() {
 		super("Dados Do Aluno");
 
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);
-		
-		escreverXML=new EscreverXML(listaDeAlunos);
-		listaDeAlunos=new ListaDeAlunos(escreverXML.buscarXML());
 		
 		handlerPesquisa=new ButtonHandlerPesquisa(telaPesquisaAluno, listaDeAlunos);
 		

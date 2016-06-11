@@ -2,13 +2,10 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
-import dao.EscreverXML;
-import dao.Escritora;
 import model.Aluno;
 import model.ListaDeAlunos;
 import view.TelaCadastroAluno;
@@ -16,7 +13,6 @@ import view.TelaCadastroAluno;
 public class ButtonHandlerCadastroAluno implements ActionListener {
 
 	TelaCadastroAluno telaCadastroAluno;
-	Escritora escritora;
 	ListaDeAlunos listaAlunos;
 
 	public ButtonHandlerCadastroAluno(TelaCadastroAluno telaCadastroAluno, ListaDeAlunos listaAlunos) {
@@ -33,19 +29,8 @@ public class ButtonHandlerCadastroAluno implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Campo(s) em branco");
 			}else {
 
-				try {
-
-					EscreverXML escrever = new EscreverXML(listaAlunos);
-					listaAlunos.setListaAlunos(escrever.buscarXML());
-					listaAlunos.add(new Aluno(telaCadastroAluno.getNomeField().getText(), telaCadastroAluno.getEnderecoField().getText(), telaCadastroAluno.getTelefoneFormatField().getText(),telaCadastroAluno.getCpfFormatField().getText() , 0));
-
-					Escritora.escrever(listaAlunos);
-					escrever.gerarXML();
-					JOptionPane.showMessageDialog(null, "Aluno cadastrado");
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				listaAlunos.add(new Aluno(telaCadastroAluno.getNomeField().getText(), telaCadastroAluno.getEnderecoField().getText(), telaCadastroAluno.getTelefoneFormatField().getText(),telaCadastroAluno.getCpfFormatField().getText() , 0));
+				JOptionPane.showMessageDialog(null, "Aluno cadastrado");
 			}
 
 			telaCadastroAluno.getNomeField().setText("");

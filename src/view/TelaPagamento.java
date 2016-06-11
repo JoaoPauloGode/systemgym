@@ -7,7 +7,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerPagamento;
-import dao.EscreverXML;
 import model.ListaDeAlunos;
 
 public class TelaPagamento extends JFrame {
@@ -23,14 +22,9 @@ public class TelaPagamento extends JFrame {
 	
 	ListaDeAlunos listaAlunos;
 	ButtonHandlerPagamento handlerPagamento;
-	EscreverXML escreverXML;
 	
 	public TelaPagamento() {
 		super("Tela De Pagamento");
-		
-		escreverXML=new EscreverXML(listaAlunos);
-		
-		listaAlunos=new ListaDeAlunos(escreverXML.buscarXML());
 		
 		handlerPagamento=new ButtonHandlerPagamento(this, listaAlunos);
 		

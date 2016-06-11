@@ -4,13 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
-import dao.EscreverXML;
-import dao.Escritora;
 import model.ListaDeAlunos;
 import view.TelaDadosAluno;
 import view.TelaPesquisaAluno;
@@ -21,7 +18,6 @@ public class ButtonHandlerPesquisa implements ActionListener {
 	private ListaDeAlunos lista;
 	private static int posId=0;
 	private static int i=0;
-	EscreverXML xml;
 
 	public ButtonHandlerPesquisa(TelaPesquisaAluno telapesquisa, ListaDeAlunos lista) {
 		this.telapesquisa = telapesquisa;
@@ -31,21 +27,9 @@ public class ButtonHandlerPesquisa implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==telapesquisa.getPesquisarButton()) {
-
-
 			
-				EscreverXML reescrever=new EscreverXML(lista);
-				lista.setListaAlunos(reescrever.buscarXML());
 				pesquisa();
-				try {
-					Escritora.escrever(lista);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				reescrever.gerarXML();
-			
-			telapesquisa.getNomeFormatField().setText("");
+				telapesquisa.getNomeFormatField().setText("");
 		}
 	}
 
