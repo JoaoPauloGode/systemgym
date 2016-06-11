@@ -2,12 +2,17 @@ package dao;
 
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import com.mysql.jdbc.Statement;
 
 import view.TelaCadastroAluno;
+import view.TelaRemoverAluno;
 
 public class CRUD {
+	
 	static public Statement stmt;
+	TelaRemoverAluno telaRemoverAluno;
 
 	public void create(TelaCadastroAluno telaCadastroAluno) {
 		try {
@@ -25,6 +30,18 @@ public class CRUD {
 			e.printStackTrace();
 		}
 	}  
+	
+	public void delete(int id) {
+		try {
+
+			stmt = (Statement) Conexao.con.createStatement();   	
+			stmt.executeUpdate("DELETE FROM alunos WHERE id = "+id);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Error");
+		}
+	}
 }
 
 
