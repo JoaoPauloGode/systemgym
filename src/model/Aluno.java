@@ -1,8 +1,5 @@
 package model;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-
-@XStreamAlias("Alunos")
 public class Aluno {
 
 	private String nome, endereco, telefone, CPF;

@@ -2,11 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import view.TelaPesquisaAluno;
 import view.TelaVenda;
-@XStreamAlias("ListaDeAlunos")
 public class ListaDeAlunos {
 
 	TelaVenda telaVenda;
@@ -52,9 +49,5 @@ public class ListaDeAlunos {
 	public void setListaAlunos(ArrayList<Aluno> listaAlunos) {
 		this.listaAlunos = listaAlunos;
 	}
-
-
-
-
 
 }
