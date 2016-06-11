@@ -42,6 +42,28 @@ public class CRUD {
 			JOptionPane.showMessageDialog(null, "Error");
 		}
 	}
+	
+	public void updateVenda(int id, double saldoDevedor) {
+		try {
+			stmt =(Statement) Conexao.con.createStatement();
+			stmt.executeUpdate("UPDATE alunos SET saldoDevedor = saldoDevedor + " + saldoDevedor + "WHERE id = " + id);
+			JOptionPane.showMessageDialog(null, "Venda Efetuada");
+		}catch(SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Error");
+		}
+	}
+
+	public void updatePagamento(int id, double saldoDevedor) {
+		try {
+			stmt =(Statement) Conexao.con.createStatement();
+			stmt.executeUpdate("UPDATE alunos SET saldoDevedor = saldoDevedor - " + saldoDevedor + "WHERE id = " + id);
+			JOptionPane.showMessageDialog(null, "Pagamento Efetuado");
+		}catch(SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Error");
+		}
+	}
 }
 
 

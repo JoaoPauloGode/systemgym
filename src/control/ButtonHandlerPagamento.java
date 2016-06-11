@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import dao.CRUD;
 import model.ListaDeAlunos;
 import view.TelaPagamento;
 
@@ -27,7 +28,7 @@ public class ButtonHandlerPagamento implements ActionListener {
 			}else {
 
 				try {
-					listaDeAlunos.quitar(Double.parseDouble(telaPagamento.getValorField().getText()), Integer.parseInt(telaPagamento.getIdField().getText()));
+					new CRUD().updatePagamento(Integer.parseInt(telaPagamento.getIdField().getText()), Double.parseDouble(telaPagamento.getValorField().getText()));
 					JOptionPane.showMessageDialog(null, "Pagamento Efetuado");
 				} catch (java.lang.IndexOutOfBoundsException e2) {
 					e2.printStackTrace();

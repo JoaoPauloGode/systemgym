@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import dao.CRUD;
 import model.ListaDeAlunos;
 import view.TelaVenda;
 
@@ -27,7 +28,7 @@ public class ButtonHandlerVenda implements ActionListener {
 			}else {
 
 				try {
-					listaDeAlunos.debitar(Double.parseDouble(telaVenda.getValorField().getText()), Integer.parseInt(telaVenda.getIdField().getText()));
+					new CRUD().updateVenda(Integer.parseInt(telaVenda.getIdField().getText()), Double.parseDouble(telaVenda.getValorField().getText()));
 					JOptionPane.showMessageDialog(null, "Venda Efetuada");
 				} catch (java.lang.IndexOutOfBoundsException e2) {
 					e2.printStackTrace();
