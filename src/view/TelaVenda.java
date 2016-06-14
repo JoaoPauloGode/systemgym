@@ -7,12 +7,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerVenda;
-import model.ListaDeAlunos;
 
 public class TelaVenda extends JFrame {
 	
 	/**
-	 * 
+	 * @author Joao Paulo
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -20,13 +19,12 @@ public class TelaVenda extends JFrame {
 	private JTextField idField, valorField;
 	private JButton debitarButton;
 	
-	ListaDeAlunos listaAlunos;
 	ButtonHandlerVenda handlerVenda;
 	
 	public TelaVenda() {
 		super("Tela De Vendas");
 		
-		handlerVenda=new ButtonHandlerVenda(this, listaAlunos);
+		handlerVenda=new ButtonHandlerVenda(this);
 		
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);

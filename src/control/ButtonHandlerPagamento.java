@@ -6,18 +6,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import dao.CRUD;
-import model.ListaDeAlunos;
 import view.TelaPagamento;
 
 
 public class ButtonHandlerPagamento implements ActionListener {
 
 	TelaPagamento telaPagamento;
-	ListaDeAlunos listaDeAlunos;
 
-	public ButtonHandlerPagamento(TelaPagamento telaPagamento, ListaDeAlunos listaDeAlunos) {
+	public ButtonHandlerPagamento(TelaPagamento telaPagamento) {
 		this.telaPagamento=telaPagamento;
-		this.listaDeAlunos=listaDeAlunos;
 	}
 
 	public void actionPerformed(ActionEvent e) {

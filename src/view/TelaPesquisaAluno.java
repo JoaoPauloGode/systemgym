@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import control.ButtonHandlerPesquisa;
-import model.ListaDeAlunos;
 
 public class TelaPesquisaAluno extends JFrame {
 
@@ -21,12 +20,11 @@ public class TelaPesquisaAluno extends JFrame {
 	private JButton pesquisarButton;
 
 	private ButtonHandlerPesquisa handlerPesquisa;
-	ListaDeAlunos listaAlunos;
 
 	public TelaPesquisaAluno() {
 		super("Tela de Pesquisa");
 
-		handlerPesquisa=new ButtonHandlerPesquisa(this, listaAlunos);
+		handlerPesquisa=new ButtonHandlerPesquisa(this);
 
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);

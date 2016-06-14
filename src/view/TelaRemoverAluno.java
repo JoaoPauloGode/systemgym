@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import model.ListaDeAlunos;
 import control.ButtonHandlerRemoveAluno;
 
 public class TelaRemoverAluno extends JFrame {
@@ -21,14 +20,11 @@ public class TelaRemoverAluno extends JFrame {
 	private JButton removerButton;
 	
 	private ButtonHandlerRemoveAluno handlerAluno;
-	ListaDeAlunos listaAlunos;
 	
-	public TelaRemoverAluno(ListaDeAlunos listaDeAlunos) {
+	public TelaRemoverAluno() {
 		super("Tela de Remoção");
 		
-		this.listaAlunos=listaDeAlunos;
-		
-		handlerAluno=new ButtonHandlerRemoveAluno(this, listaDeAlunos);
+		handlerAluno=new ButtonHandlerRemoveAluno(this);
 		
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);

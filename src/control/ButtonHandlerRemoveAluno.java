@@ -6,17 +6,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import dao.CRUD;
-import model.ListaDeAlunos;
 import view.TelaRemoverAluno;
 
 public class ButtonHandlerRemoveAluno implements ActionListener {
 
 	TelaRemoverAluno telaRemoveAluno;
-	ListaDeAlunos listaDeAlunos;
 
-	public ButtonHandlerRemoveAluno(TelaRemoverAluno telaRemoveAluno, ListaDeAlunos listaDeAlunos) {
+	public ButtonHandlerRemoveAluno(TelaRemoverAluno telaRemoveAluno) {
 		this.telaRemoveAluno = telaRemoveAluno;
-		this.listaDeAlunos=listaDeAlunos;
 	}
 	
 	@Override

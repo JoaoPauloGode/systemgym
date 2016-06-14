@@ -8,7 +8,6 @@ import javax.swing.JTextField;
 import control.ButtonHandlerPesquisa;
 import dao.CRUD;
 import model.Aluno;
-import model.ListaDeAlunos;
 
 public class TelaDadosAluno extends JFrame {
 
@@ -19,7 +18,6 @@ public class TelaDadosAluno extends JFrame {
 	JLabel telaFundoLabel, nomeLabel, telefoneLabel, enderecoLabel, cpfLabel, idLabel, saldoDevedorLabel;
 	JTextField nomeField, telefoneField, enderecofield, cpfField, idField, saldoDevedorField;
 	
-	ListaDeAlunos listaDeAlunos;
 	Aluno aluno;
 	CRUD crud;
 	ButtonHandlerPesquisa handlerPesquisa;
@@ -33,7 +31,7 @@ public class TelaDadosAluno extends JFrame {
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);
 		
-		handlerPesquisa=new ButtonHandlerPesquisa(telaPesquisaAluno, listaDeAlunos);
+		handlerPesquisa=new ButtonHandlerPesquisa(telaPesquisaAluno);
 		
 		nomeLabel=new JLabel("Nome: ");
 		telefoneLabel=new JLabel("Telefone: ");

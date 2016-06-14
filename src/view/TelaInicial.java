@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
-import model.ListaDeAlunos;
 import control.ButtonHandler;
 import control.RadioButtonHandler;
 
@@ -24,8 +23,6 @@ public class TelaInicial extends JFrame {
 	private JRadioButton alunoRadioButton, mensalidadeRadioButton, vendaRadioButton;
 	private ButtonGroup bg;
 	
-	ListaDeAlunos listaAlunos;
-	
 	TelaCadastroAluno telaCadastroAluno;
 	
 	RadioButtonHandler handlerR;
@@ -38,11 +35,10 @@ public class TelaInicial extends JFrame {
 	
 	public TelaInicial() {
 		super("Tela Inicial");
-		listaAlunos = new ListaDeAlunos();
 		
 		handlerR=new RadioButtonHandler(this);
-		handlerCadAl=new ButtonHandler(this, listaAlunos);
-		handlerRemAl=new ButtonHandler(this, listaAlunos);
+		handlerCadAl=new ButtonHandler(this);
+		handlerRemAl=new ButtonHandler(this);
 		handlerListAl=new ButtonHandler(this);
 		handlervenda=new ButtonHandler(this);
 		handlerPagamento=new ButtonHandler(this);

@@ -8,7 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerCadastroAluno;
-import model.ListaDeAlunos;
 
 public class TelaCadastroAluno extends JFrame {
 	
@@ -23,12 +22,10 @@ public class TelaCadastroAluno extends JFrame {
 	
 	private ButtonHandlerCadastroAluno handlerAluno;
 	
-	ListaDeAlunos listaAlunos;
-	
-	public TelaCadastroAluno(ListaDeAlunos lista) {
+	public TelaCadastroAluno() {
 		super("Tela de Cadastro de Alunos");
-		listaAlunos = lista;
-		handlerAluno=new ButtonHandlerCadastroAluno(this,lista);
+		
+		handlerAluno=new ButtonHandlerCadastroAluno(this);
 		
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);

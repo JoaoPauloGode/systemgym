@@ -2,10 +2,8 @@ package control;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
-import java.io.IOException;
 
-import model.ListaDeAlunos;
+import dao.CRUD;
 import view.TelaCadastroAluno;
 import view.TelaInicial;
 import view.TelaPagamento;
@@ -21,11 +19,9 @@ public class ButtonHandler implements MouseListener {
 	TelaVenda telaVenda;
 	TelaPagamento telaPagamento;
 	TelaPesquisaAluno telaPesquisaAluno;
-	ListaDeAlunos listaAlunos;
 
-	public ButtonHandler(TelaInicial telainicial, ListaDeAlunos listaAlunos) {
+	public ButtonHandler(TelaInicial telainicial) {
 		this.telainicial=telainicial;
-		this.listaAlunos=listaAlunos;
 	}
 
 	public ButtonHandler(TelaCadastroAluno telaCadastroAluno) {
@@ -34,10 +30,6 @@ public class ButtonHandler implements MouseListener {
 
 	public ButtonHandler(TelaRemoverAluno telaRemoverAluno) {
 		this.telaRemoverAluno = telaRemoverAluno;
-	}
-
-	public ButtonHandler(TelaInicial telainicial) {
-		this.telainicial=telainicial;
 	}
 
 	public ButtonHandler(TelaVenda telaVenda) {
@@ -55,17 +47,18 @@ public class ButtonHandler implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(e.getSource()==telainicial.getCadastrarAlunoButton()) {
-			new TelaCadastroAluno(listaAlunos);
+			new TelaCadastroAluno();
 		}else if(e.getSource()==telainicial.getRemoverAlunoButton()) {
-			new TelaRemoverAluno(listaAlunos);
+			new TelaRemoverAluno();
 		}else if(e.getSource()==telainicial.getListarAlunoButton()) {
-
-			try {
-				java.awt.Desktop.getDesktop().open(new File("file\\Lista Alunos.txt"));
-
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
+			
+					try {
+						new CRUD().listAll();
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				
 		}else if(e.getSource()==telainicial.getRealizarVendaButton()) {
 			new TelaVenda();
 		}else if(e.getSource()==telainicial.getRealizarPagamentoButton()) {

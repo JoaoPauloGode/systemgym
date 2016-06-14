@@ -7,7 +7,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerPagamento;
-import model.ListaDeAlunos;
 
 public class TelaPagamento extends JFrame {
 	
@@ -20,13 +19,12 @@ public class TelaPagamento extends JFrame {
 	private JTextField idField, valorField;
 	private JButton pagarButton;
 	
-	ListaDeAlunos listaAlunos;
 	ButtonHandlerPagamento handlerPagamento;
 	
 	public TelaPagamento() {
 		super("Tela De Pagamento");
 		
-		handlerPagamento=new ButtonHandlerPagamento(this, listaAlunos);
+		handlerPagamento=new ButtonHandlerPagamento(this);
 		
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);

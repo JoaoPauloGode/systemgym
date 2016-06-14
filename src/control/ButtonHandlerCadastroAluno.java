@@ -8,18 +8,17 @@ import javax.swing.text.MaskFormatter;
 
 import dao.CRUD;
 import model.Aluno;
-import model.ListaDeAlunos;
 import view.TelaCadastroAluno;
 
 public class ButtonHandlerCadastroAluno implements ActionListener {
 
 	TelaCadastroAluno telaCadastroAluno;
-	ListaDeAlunos listaAlunos;
+
 	Aluno aluno;
 
-	public ButtonHandlerCadastroAluno(TelaCadastroAluno telaCadastroAluno, ListaDeAlunos listaAlunos) {
+	public ButtonHandlerCadastroAluno(TelaCadastroAluno telaCadastroAluno) {
 		this.telaCadastroAluno = telaCadastroAluno;
-		this.listaAlunos = listaAlunos;
+		
 	}
 
 	@Override
@@ -30,7 +29,7 @@ public class ButtonHandlerCadastroAluno implements ActionListener {
 					||telaCadastroAluno.getTelefoneFormatField().getText().equals("(  ) .    -    ")||telaCadastroAluno.getCpfFormatField().getText().equals("   .   .   -  ")) {
 				JOptionPane.showMessageDialog(null, "Campo(s) em branco");
 			}else {
-				listaAlunos.add(new Aluno(telaCadastroAluno.getNomeField().getText(), telaCadastroAluno.getEnderecoField().getText(), telaCadastroAluno.getTelefoneFormatField().getText(),telaCadastroAluno.getCpfFormatField().getText(), 0));
+				//listaAlunos.add(new Aluno(telaCadastroAluno.getNomeField().getText(), telaCadastroAluno.getEnderecoField().getText(), telaCadastroAluno.getTelefoneFormatField().getText(),telaCadastroAluno.getCpfFormatField().getText(), 0));
 				new CRUD().create(telaCadastroAluno);	
 				JOptionPane.showMessageDialog(null, "Aluno cadastrado no BD");
 			}
