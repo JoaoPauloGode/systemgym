@@ -21,7 +21,7 @@ public class ButtonHandlerVenda implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==telaVenda.getDebitarButton()) {
 
-			if(telaVenda.getCpfFormatField().getText().equals("")||telaVenda.getValorField().getText().equals("")) {
+			if(telaVenda.getCpfFormatField().getText().equals("   .   .   -")||telaVenda.getValorField().getText().equals("")) {
 				JOptionPane.showMessageDialog(null, "Campo(s) em branco");
 			}else {
 

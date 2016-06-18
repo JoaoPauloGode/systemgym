@@ -63,7 +63,7 @@ public class TelaVenda extends JFrame {
 		return debitarButton;
 	}
 
-	public JTextField getCpfFormatField() {
+	public JFormattedTextField getCpfFormatField() {
 		return cpfFormatField;
 	}
 
