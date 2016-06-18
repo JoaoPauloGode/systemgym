@@ -47,10 +47,10 @@ public class CRUD {
 		}
 	}
 
-	public void updateVenda(int id, double saldoDevedor) {
+	public void updateVenda(String cpf, double saldoDevedor) {
 		try {
 			stmt =(Statement) Conexao.con.createStatement();
-			stmt.executeUpdate("UPDATE alunos SET saldoDevedor = saldoDevedor + " + saldoDevedor + "WHERE id = " + id);
+			stmt.executeUpdate("UPDATE alunos SET saldoDevedor = saldoDevedor + " + saldoDevedor + "WHERE cpf = " + cpf);
 		}catch(SQLException e) {
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Error");

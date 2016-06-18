@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -15,8 +16,9 @@ public class TelaVenda extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private JLabel idLabel, valorLabel, telaFundoLabel;
-	private JTextField idField, valorField;
+	private JLabel cpfLabel, valorLabel, telaFundoLabel;
+	private JTextField valorField;
+	private JFormattedTextField cpfFormatField;
 	private JButton debitarButton;
 	
 	ButtonHandlerVenda handlerVenda;
@@ -29,13 +31,13 @@ public class TelaVenda extends JFrame {
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);
 		
-		idLabel=new JLabel("Inssira o ID: ");
-		telaFundoLabel.add(idLabel);
-		idLabel.setBounds(20, 20, 160, 30);
+		cpfLabel=new JLabel("Inssira o CPF: ");
+		telaFundoLabel.add(cpfLabel);
+		cpfLabel.setBounds(20, 20, 160, 30);
 		
-		idField=new JTextField(5);
-		telaFundoLabel.add(idField);
-		idField.setBounds(100, 20, 30, 30);
+		cpfFormatField=new JFormattedTextField(handlerVenda.Mascara("###.###.###-##"));
+		telaFundoLabel.add(cpfFormatField);
+		cpfFormatField.setBounds(120, 20, 110, 30);
 		
 		valorLabel=new JLabel("Inssira o Valor: ");
 		telaFundoLabel.add(valorLabel);
@@ -61,8 +63,8 @@ public class TelaVenda extends JFrame {
 		return debitarButton;
 	}
 
-	public JTextField getIdField() {
-		return idField;
+	public JTextField getCpfFormatField() {
+		return cpfFormatField;
 	}
 
 	public JTextField getValorField() {
