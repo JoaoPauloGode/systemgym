@@ -3,9 +3,9 @@ package control;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import dao.CRUD;
 import view.TelaCadastroAluno;
 import view.TelaInicial;
+import view.TelaListaAlunos;
 import view.TelaPagamento;
 import view.TelaPesquisaAluno;
 import view.TelaRemoverAluno;
@@ -51,14 +51,12 @@ public class ButtonHandler implements MouseListener {
 		}else if(e.getSource()==telainicial.getRemoverAlunoButton()) {
 			new TelaRemoverAluno();
 		}else if(e.getSource()==telainicial.getListarAlunoButton()) {
-			
-					try {
-						new CRUD().listAll();
-					} catch (Exception e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				
+				try {
+					new TelaListaAlunos();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 		}else if(e.getSource()==telainicial.getRealizarVendaButton()) {
 			new TelaVenda();
 		}else if(e.getSource()==telainicial.getRealizarPagamentoButton()) {

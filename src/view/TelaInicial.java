@@ -32,6 +32,7 @@ public class TelaInicial extends JFrame {
 	ButtonHandler handlervenda;
 	ButtonHandler handlerPagamento;
 	ButtonHandler handlerPesquisa;
+	ButtonHandler handlertabela;
 	
 	public TelaInicial() {
 		super("Tela Inicial");
@@ -43,6 +44,8 @@ public class TelaInicial extends JFrame {
 		handlervenda=new ButtonHandler(this);
 		handlerPagamento=new ButtonHandler(this);
 		handlerPesquisa=new ButtonHandler(this);
+		
+		handlertabela=new ButtonHandler(this);
 		
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);
@@ -128,6 +131,7 @@ public class TelaInicial extends JFrame {
 		realizarVendaButton.addMouseListener(handlervenda);
 		realizarPagamentoButton.addMouseListener(handlerPagamento);
 		pesquisarAlunoButton.addMouseListener(handlerPesquisa);
+		listarAlunoButton.addMouseListener(handlertabela);
 		
 		setSize(500, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

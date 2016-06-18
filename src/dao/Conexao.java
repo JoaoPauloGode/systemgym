@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
  
 public class Conexao{
-	static Connection con;
+	public static Connection con;
   
   
 	public static Connection getConnection() {
