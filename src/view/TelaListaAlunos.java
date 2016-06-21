@@ -7,7 +7,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import control.ButtonHandlerTabela;
+import control.ButtonHandlerTabelaAlunos;
 
 public class TelaListaAlunos extends JFrame {
 
@@ -18,38 +18,37 @@ public class TelaListaAlunos extends JFrame {
 	private JTable table;
 	private JScrollPane scroll;
 	private DefaultTableModel model;
-	private ButtonHandlerTabela handlerTabela;
+	private ButtonHandlerTabelaAlunos handlerTabela;
 
 	public TelaListaAlunos() {
 		super("Listar Alunos");
-		
+
 		setLayout(new BorderLayout());
-		
+
 		model = new DefaultTableModel();
 		model.addColumn("Nome");
 		model.addColumn("Telefone");
 		model.addColumn("Endereco");
 		model.addColumn("CPF");
 		model.addColumn("Saldo Devedor");
-		handlerTabela=new ButtonHandlerTabela(this);
+		handlerTabela=new ButtonHandlerTabelaAlunos(this);
 		try {
 			handlerTabela.inserirLinha();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		table = new JTable(model);
-		
+
 		scroll = new JScrollPane(table);		
 		add(scroll,BorderLayout.CENTER);
-		
+
 		setSize(500, 500);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
-	
+
 	public JTable getTable() {
 		return table;
 	}
@@ -65,5 +64,5 @@ public class TelaListaAlunos extends JFrame {
 	public void setModel(DefaultTableModel model) {
 		this.model = model;
 	}
-	
+
 }

@@ -3,7 +3,6 @@ package dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -86,14 +85,14 @@ public class CRUDAlunos {
 		return aluno;
 	}
 
-	public ArrayList<Aluno> listAll() throws Exception {
-		ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+	public void listAll() throws Exception {
+		//ArrayList<Aluno> alunos = new ArrayList<Aluno>();
 		
 		stmt = Conexao.con.createStatement();
 		ResultSet rs=stmt.executeQuery("SELECT * FROM alunos");
 		
 		Aluno aluno = new Aluno();
-		while(rs.next()){
+		while(rs.next()) {
 
 			aluno.setNome(rs.getString("nome"));
 			aluno.setEndereco(rs.getString("endereco"));
@@ -101,11 +100,10 @@ public class CRUDAlunos {
 			aluno.setSaldoDevedor(Double.parseDouble(rs.getString("saldoDevedor")));
 			aluno.setTelefone(rs.getString("telefone"));
 
-			alunos.add(aluno);
-			System.out.println(alunos.get(0).getNome());
+			//alunos.add(aluno);
 		}
 		rs.close();
-		return alunos;
+		//return alunos;
 	}
 
 }

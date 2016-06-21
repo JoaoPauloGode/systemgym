@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import dao.Conexao;
 import view.TelaListaAlunos;
 
-public class ButtonHandlerTabela {
+public class ButtonHandlerTabelaAlunos {
 	
 	private TelaListaAlunos telaListaAlunos;
 	
-	public ButtonHandlerTabela(TelaListaAlunos telaListaAlunos) {
+	public ButtonHandlerTabelaAlunos(TelaListaAlunos telaListaAlunos) {
 		this.telaListaAlunos=telaListaAlunos;
 	}
 	

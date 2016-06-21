@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 import view.TelaCadastroAluno;
 import view.TelaInicial;
 import view.TelaListaAlunos;
+import view.TelaListaMensalidades;
 import view.TelaPagamento;
 import view.TelaPesquisaAluno;
 import view.TelaQuitaMensalidade;
@@ -21,6 +22,7 @@ public class ButtonHandler implements MouseListener {
 	TelaPagamento telaPagamento;
 	TelaPesquisaAluno telaPesquisaAluno;
 	TelaQuitaMensalidade telaQuitaMensalidade;
+	TelaListaMensalidades telaListaMensalidades;
 
 	public ButtonHandler(TelaInicial telainicial) {
 		this.telainicial=telainicial;
@@ -37,17 +39,21 @@ public class ButtonHandler implements MouseListener {
 	public ButtonHandler(TelaVenda telaVenda) {
 		this.telaVenda=telaVenda;
 	}
-	
+
 	public ButtonHandler(TelaPagamento telaPagamento) {
 		this.telaPagamento=telaPagamento;
 	}
-	
+
 	public ButtonHandler(TelaPesquisaAluno telapesquisaAluno) {
 		this.telaPesquisaAluno=telapesquisaAluno;
 	}
-	
+
 	public ButtonHandler(TelaQuitaMensalidade telaQuitaMensalidade) {
 		this.telaQuitaMensalidade=telaQuitaMensalidade;
+	}
+	
+	public ButtonHandler(TelaListaMensalidades telaListaMensalidades) {
+		this.telaListaMensalidades=telaListaMensalidades;
 	}
 
 	@Override
@@ -57,11 +63,7 @@ public class ButtonHandler implements MouseListener {
 		}else if(e.getSource()==telainicial.getRemoverAlunoButton()) {
 			new TelaRemoverAluno();
 		}else if(e.getSource()==telainicial.getListarAlunoButton()) {
-				try {
-					new TelaListaAlunos();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
+			new TelaListaAlunos();
 		}else if(e.getSource()==telainicial.getRealizarVendaButton()) {
 			new TelaVenda();
 		}else if(e.getSource()==telainicial.getRealizarPagamentoButton()) {
@@ -70,6 +72,8 @@ public class ButtonHandler implements MouseListener {
 			new TelaPesquisaAluno();
 		}else if(e.getSource()==telainicial.getQuitarMensalidadeButton()) {
 			new TelaQuitaMensalidade();
+		}else if(e.getSource()==telainicial.getListarMensalidadesButton()) {
+			new TelaListaMensalidades();
 		}
 	}
 

@@ -15,7 +15,7 @@ import control.RadioButtonHandler;
 public class TelaInicial extends JFrame {
 	
 	/**
-	 * 
+	 * @author Joao Paulo
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -24,8 +24,6 @@ public class TelaInicial extends JFrame {
 	realizarVendaButton, realizarPagamentoButton, listarMensalidadesButton, quitarMensalidadeButton;
 	private JRadioButton alunoRadioButton, mensalidadeRadioButton, vendaRadioButton;
 	private ButtonGroup bg;
-	
-	TelaCadastroAluno telaCadastroAluno;
 	
 	RadioButtonHandler handlerR;
 	ButtonHandler handlerCadAl;
@@ -36,6 +34,7 @@ public class TelaInicial extends JFrame {
 	ButtonHandler handlerPesquisa;
 	ButtonHandler handlertabela;
 	ButtonHandler handlerQuitaMensalidade;
+	ButtonHandler handlerListaMensalidades;
 	
 	public TelaInicial() {
 		super("Tela Inicial");
@@ -51,9 +50,11 @@ public class TelaInicial extends JFrame {
 		handlerPesquisa=new ButtonHandler(this);
 		handlertabela=new ButtonHandler(this);
 		handlerQuitaMensalidade=new ButtonHandler(this);
+		handlerListaMensalidades=new ButtonHandler(this);
 		
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);
+		
 		/**
 		 * ================================================================
 		 */
@@ -131,6 +132,7 @@ public class TelaInicial extends JFrame {
 		vendaRadioButton.addActionListener(handlerR);
 		
 		quitarMensalidadeButton.addMouseListener(handlerQuitaMensalidade);
+		listarMensalidadesButton.addMouseListener(handlerListaMensalidades);
 		
 		cadastrarAlunoButton.addMouseListener(handlerCadAl);
 		removerAlunoButton.addMouseListener(handlerRemAl);

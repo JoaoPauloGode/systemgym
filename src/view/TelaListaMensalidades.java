@@ -7,7 +7,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import control.ButtonHandlerTabela;
+import control.ButtonHandlerTabelaMensalidades;
 
 public class TelaListaMensalidades extends JFrame {
 
@@ -18,36 +18,35 @@ public class TelaListaMensalidades extends JFrame {
 	private JTable table;
 	private JScrollPane scroll;
 	private DefaultTableModel model;
-	private ButtonHandlerTabela handlerTabela;
+	private ButtonHandlerTabelaMensalidades handlerTabelaMensalidades;
 
 	public TelaListaMensalidades() {
 		super("Listar Mensalidades");
-		
+
 		setLayout(new BorderLayout());
-		
+
 		model = new DefaultTableModel();
 		model.addColumn("CPF");
 		model.addColumn("Datas");
-		//handlerTabela=new ButtonHandlerTabela(this);
-		
+		handlerTabelaMensalidades=new ButtonHandlerTabelaMensalidades(this);
+
 		try {
-			handlerTabela.inserirLinha();
+			handlerTabelaMensalidades.inserirMensalidadeQuitada();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		table = new JTable(model);
-		
+
 		scroll = new JScrollPane(table);		
 		add(scroll,BorderLayout.CENTER);
-		
+
 		setSize(500, 500);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
-	
+
 	public JTable getTable() {
 		return table;
 	}
