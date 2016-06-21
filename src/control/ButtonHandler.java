@@ -8,6 +8,7 @@ import view.TelaInicial;
 import view.TelaListaAlunos;
 import view.TelaPagamento;
 import view.TelaPesquisaAluno;
+import view.TelaQuitaMensalidade;
 import view.TelaRemoverAluno;
 import view.TelaVenda;
 
@@ -19,6 +20,7 @@ public class ButtonHandler implements MouseListener {
 	TelaVenda telaVenda;
 	TelaPagamento telaPagamento;
 	TelaPesquisaAluno telaPesquisaAluno;
+	TelaQuitaMensalidade telaQuitaMensalidade;
 
 	public ButtonHandler(TelaInicial telainicial) {
 		this.telainicial=telainicial;
@@ -43,6 +45,10 @@ public class ButtonHandler implements MouseListener {
 	public ButtonHandler(TelaPesquisaAluno telapesquisaAluno) {
 		this.telaPesquisaAluno=telapesquisaAluno;
 	}
+	
+	public ButtonHandler(TelaQuitaMensalidade telaQuitaMensalidade) {
+		this.telaQuitaMensalidade=telaQuitaMensalidade;
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -54,7 +60,6 @@ public class ButtonHandler implements MouseListener {
 				try {
 					new TelaListaAlunos();
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 		}else if(e.getSource()==telainicial.getRealizarVendaButton()) {
@@ -63,6 +68,8 @@ public class ButtonHandler implements MouseListener {
 			new TelaPagamento();
 		}else if(e.getSource()==telainicial.getPesquisarAlunoButton()) {
 			new TelaPesquisaAluno();
+		}else if(e.getSource()==telainicial.getQuitarMensalidadeButton()) {
+			new TelaQuitaMensalidade();
 		}
 	}
 

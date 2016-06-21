@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.Toolkit;
+
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -33,9 +35,12 @@ public class TelaInicial extends JFrame {
 	ButtonHandler handlerPagamento;
 	ButtonHandler handlerPesquisa;
 	ButtonHandler handlertabela;
+	ButtonHandler handlerQuitaMensalidade;
 	
 	public TelaInicial() {
 		super("Tela Inicial");
+		
+		setIconImage(Toolkit.getDefaultToolkit().getImage("res\\qn.jpg"));
 		
 		handlerR=new RadioButtonHandler(this);
 		handlerCadAl=new ButtonHandler(this);
@@ -44,8 +49,8 @@ public class TelaInicial extends JFrame {
 		handlervenda=new ButtonHandler(this);
 		handlerPagamento=new ButtonHandler(this);
 		handlerPesquisa=new ButtonHandler(this);
-		
 		handlertabela=new ButtonHandler(this);
+		handlerQuitaMensalidade=new ButtonHandler(this);
 		
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);
@@ -124,6 +129,8 @@ public class TelaInicial extends JFrame {
 		alunoRadioButton.addActionListener(handlerR);
 		mensalidadeRadioButton.addActionListener(handlerR);
 		vendaRadioButton.addActionListener(handlerR);
+		
+		quitarMensalidadeButton.addMouseListener(handlerQuitaMensalidade);
 		
 		cadastrarAlunoButton.addMouseListener(handlerCadAl);
 		removerAlunoButton.addMouseListener(handlerRemAl);
