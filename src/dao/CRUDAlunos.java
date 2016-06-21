@@ -9,12 +9,10 @@ import javax.swing.JOptionPane;
 
 import model.Aluno;
 import view.TelaCadastroAluno;
-import view.TelaRemoverAluno;
 
-public class CRUD {
+public class CRUDAlunos {
 
 	public static Statement stmt;
-	TelaRemoverAluno telaRemoverAluno;
 
 	public void create(TelaCadastroAluno telaCadastroAluno) {
 		try {

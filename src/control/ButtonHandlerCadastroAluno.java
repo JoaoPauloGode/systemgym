@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
-import dao.CRUD;
+import dao.CRUDAlunos;
 import model.Aluno;
 import view.TelaCadastroAluno;
 
@@ -29,8 +29,7 @@ public class ButtonHandlerCadastroAluno implements ActionListener {
 					||telaCadastroAluno.getTelefoneFormatField().getText().equals("(  ) .    -    ")||telaCadastroAluno.getCpfFormatField().getText().equals("   .   .   -  ")) {
 				JOptionPane.showMessageDialog(null, "Campo(s) em branco");
 			}else {
-				//listaAlunos.add(new Aluno(telaCadastroAluno.getNomeField().getText(), telaCadastroAluno.getEnderecoField().getText(), telaCadastroAluno.getTelefoneFormatField().getText(),telaCadastroAluno.getCpfFormatField().getText(), 0));
-				new CRUD().create(telaCadastroAluno);	
+				new CRUDAlunos().create(telaCadastroAluno);	
 				JOptionPane.showMessageDialog(null, "Aluno cadastrado no BD");
 			}
 

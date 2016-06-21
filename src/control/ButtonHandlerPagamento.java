@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
-import dao.CRUD;
+import dao.CRUDAlunos;
 import view.TelaPagamento;
 
 
@@ -26,7 +26,7 @@ public class ButtonHandlerPagamento implements ActionListener {
 			}else {
 
 				try {
-					new CRUD().updatePagamento(telaPagamento.getCpfFormatField().getText().replaceAll("\\D", ""), Double.parseDouble(telaPagamento.getValorField().getText()));
+					new CRUDAlunos().updatePagamento(telaPagamento.getCpfFormatField().getText().replaceAll("\\D", ""), Double.parseDouble(telaPagamento.getValorField().getText()));
 					JOptionPane.showMessageDialog(null, "Pagamento Efetuado");
 				} catch (java.lang.IndexOutOfBoundsException e2) {
 					e2.printStackTrace();

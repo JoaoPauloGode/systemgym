@@ -60,5 +60,13 @@ public class TelaQuitaMensalidade extends JFrame {
 	public JButton getPagarMensalidadeButton() {
 		return pagarMensalidadeButton;
 	}
+
+	public JFormattedTextField getCpfFormatField() {
+		return cpfFormatField;
+	}
+
+	public JFormattedTextField getDataFormatField() {
+		return dataFormatField;
+	}
 	
 }

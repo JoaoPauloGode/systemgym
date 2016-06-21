@@ -3,8 +3,10 @@ package control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
+import dao.CRUDMensalidades;
 import view.TelaQuitaMensalidade;
 
 public class ButtonHandlerQuitaMensalidade implements ActionListener {
@@ -18,7 +20,7 @@ public class ButtonHandlerQuitaMensalidade implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==telaQuitaMensalidade.getPagarMensalidadeButton()) {
-			
+			new CRUDMensalidades().insertMensalidade(telaQuitaMensalidade, telaQuitaMensalidade.getCpfFormatField().getText(), telaQuitaMensalidade.getDataFormatField().getText());
 		}
 		
 	}
