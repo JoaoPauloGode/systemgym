@@ -8,13 +8,13 @@ import javax.swing.JOptionPane;
 import view.TelaQuitaMensalidade;
 
 public class CRUDMensalidades {
-	
+
 	public static Statement stmt;
 
 	public void insertMensalidade(TelaQuitaMensalidade telaQuitaMensalidade, String cpf, String data) {
 		try {
 			stmt = Conexao.con.createStatement(); 
-			stmt.executeUpdate("INSERT INTO mensalidades (cpf, data) VALUES "
+			stmt.executeUpdate("INSERT INTO mensalidades (cpfM, datas) VALUES "
 					+ "('" + telaQuitaMensalidade.getCpfFormatField().getText().replaceAll("\\D", "") + "','"
 					+ telaQuitaMensalidade.getDataFormatField().getText().replaceAll("\\D", "")
 					+"')");
@@ -26,4 +26,14 @@ public class CRUDMensalidades {
 		}
 	}  
 
+	public void listAllMensalidades() {
+		try {
+			stmt = Conexao.con.createStatement(); 
+			stmt.executeUpdate("select cpfM, datas from mensalidades as ms inner join alunos as al on ms.cpfM=al.cpf"
+					+ "group by cpfM");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
