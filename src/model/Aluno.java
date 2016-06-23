@@ -2,7 +2,7 @@ package model;
 
 public class Aluno {
 
-	private String nome, endereco, telefone, CPF;
+	private String nome, endereco, telefone, CPF, data;
 	private int id;
 	private double saldoDevedor;
 	
@@ -10,13 +10,14 @@ public class Aluno {
 		
 	}
 
-	public Aluno(String nome, String endereco, String telefone, String CPF, double saldoDevedor) {
+	public Aluno(String nome, String endereco, String telefone, String CPF, double saldoDevedor, String data) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
 		this.CPF=CPF;
 		this.saldoDevedor=saldoDevedor;
+		this.data=data;
 	}
 	
 	public int getId() {
@@ -65,6 +66,14 @@ public class Aluno {
 
 	public void setCPF(String cPF) {
 		CPF = cPF;
+	}
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
 	}
 
 }

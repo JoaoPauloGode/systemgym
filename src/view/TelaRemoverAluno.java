@@ -2,9 +2,9 @@ package view;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 import control.ButtonHandlerRemoveAluno;
 
@@ -15,8 +15,8 @@ public class TelaRemoverAluno extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private JLabel idLabel, telaFundoLabel;;
-	private JTextField idField;
+	private JLabel cpfLabel, telaFundoLabel;;
+	private JFormattedTextField cpfFormatField;
 	private JButton removerButton;
 	
 	private ButtonHandlerRemoveAluno handlerAluno;
@@ -29,13 +29,13 @@ public class TelaRemoverAluno extends JFrame {
 		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
 		add(telaFundoLabel);
 		
-		idLabel=new JLabel("Inssira o ID Para Remoção: ");
-		telaFundoLabel.add(idLabel);
-		idLabel.setBounds(20, 20, 160, 30);
+		cpfLabel=new JLabel("Inssira o CPF Para Remoção: ");
+		telaFundoLabel.add(cpfLabel);
+		cpfLabel.setBounds(20, 20, 180, 30);
 		
-		idField=new JTextField(5);
-		telaFundoLabel.add(idField);
-		idField.setBounds(180, 20, 30, 30);
+		cpfFormatField=new JFormattedTextField(handlerAluno.Mascara("###.###.###-##"));
+		telaFundoLabel.add(cpfFormatField);
+		cpfFormatField.setBounds(190, 20, 120, 30);
 		
 		removerButton=new JButton("Remover");
 		telaFundoLabel.add(removerButton);
@@ -53,8 +53,8 @@ public class TelaRemoverAluno extends JFrame {
 		return removerButton;
 	}
 
-	public JTextField getIdField() {
-		return idField;
+	public JFormattedTextField getCpfFormatField() {
+		return cpfFormatField;
 	}
 
 }

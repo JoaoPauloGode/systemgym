@@ -2,6 +2,7 @@ package control;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
 
 import view.TelaCadastroAluno;
 import view.TelaInicial;
@@ -73,7 +74,13 @@ public class ButtonHandler implements MouseListener {
 		}else if(e.getSource()==telainicial.getQuitarMensalidadeButton()) {
 			new TelaQuitaMensalidade();
 		}else if(e.getSource()==telainicial.getListarMensalidadesButton()) {
-			new TelaListaMensalidades();
+			try {
+				new TelaListaMensalidades();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 		}
 	}
 

@@ -20,7 +20,7 @@ public class ButtonHandlerTabelaMensalidades {
 		
 		ResultSet rs = p.executeQuery();
 		while(rs.next()) {
-			telaListaMensalidades.getModel().addColumn(new Object[] {rs.getString("cpfM"), rs.getString("datas")});
+			telaListaMensalidades.getModel().addRow(new Object[] {rs.getString("cpfM"), rs.getString("datas")});
 		}
 	}
 }

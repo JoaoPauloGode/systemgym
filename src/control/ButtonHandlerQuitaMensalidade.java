@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.text.MaskFormatter;
 
-import dao.CRUDMensalidades;
+import dao.CRUDAlunos;
 import view.TelaQuitaMensalidade;
 
 public class ButtonHandlerQuitaMensalidade implements ActionListener {
-	
+
 	TelaQuitaMensalidade telaQuitaMensalidade;
 
 	public ButtonHandlerQuitaMensalidade(TelaQuitaMensalidade telaQuitaMensalidade) {
@@ -19,11 +19,11 @@ public class ButtonHandlerQuitaMensalidade implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==telaQuitaMensalidade.getPagarMensalidadeButton()) {
-			new CRUDMensalidades().insertMensalidade(telaQuitaMensalidade, telaQuitaMensalidade.getCpfFormatField().getText(), telaQuitaMensalidade.getDataFormatField().getText());
+			new CRUDAlunos().updatePagaMensalidade(telaQuitaMensalidade.getCpfFormatField().getText().replaceAll("\\D", ""), 
+					telaQuitaMensalidade.getDataFormatField().getText().replaceAll("\\D", ""));
 		}
-		
 	}
-	
+
 	public MaskFormatter Mascara(String Mascara) {
 		MaskFormatter F_Mascara = new MaskFormatter();
 		try {

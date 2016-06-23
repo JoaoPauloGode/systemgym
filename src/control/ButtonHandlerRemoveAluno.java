@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
 
 import dao.CRUDAlunos;
 import view.TelaRemoverAluno;
@@ -21,7 +22,7 @@ public class ButtonHandlerRemoveAluno implements ActionListener {
 		if(e.getSource()==telaRemoveAluno.getRemoverButton()) {
 			
 			try {
-				new CRUDAlunos().delete(Integer.parseInt(telaRemoveAluno.getIdField().getText()));
+				new CRUDAlunos().delete(telaRemoveAluno.getCpfFormatField().getText());
 				JOptionPane.showMessageDialog(null, "Aluno Removido do BD");
 				
 			} catch (java.lang.IndexOutOfBoundsException e2) {
@@ -29,7 +30,18 @@ public class ButtonHandlerRemoveAluno implements ActionListener {
 				e2.printStackTrace();
 				JOptionPane.showMessageDialog(null, "Estouro!, ID excede o número de alunos");
 			}
-			telaRemoveAluno.getIdField().setText("");
+			telaRemoveAluno.getCpfFormatField().setText("");
 		}
+	}
+	
+	public MaskFormatter Mascara(String Mascara) {
+		MaskFormatter F_Mascara = new MaskFormatter();
+		try {
+			F_Mascara.setMask(Mascara);
+			F_Mascara.setPlaceholderCharacter(' ');
+		} catch (Exception excecao) {
+			excecao.printStackTrace();
+		}
+		return F_Mascara;
 	}
 }

@@ -31,6 +31,7 @@ public class TelaListaAlunos extends JFrame {
 		model.addColumn("Endereco");
 		model.addColumn("CPF");
 		model.addColumn("Saldo Devedor");
+		model.addColumn("Mensalidades");
 		handlerTabela=new ButtonHandlerTabelaAlunos(this);
 		try {
 			handlerTabela.inserirLinha();
@@ -43,8 +44,8 @@ public class TelaListaAlunos extends JFrame {
 		scroll = new JScrollPane(table);		
 		add(scroll,BorderLayout.CENTER);
 
-		setSize(500, 500);
-		setResizable(false);
+		setSize(700, 400);
+		setResizable(true);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}

@@ -17,12 +17,13 @@ public class CRUDAlunos {
 		try {
 			stmt = Conexao.con.createStatement(); 
 
-			stmt.executeUpdate("INSERT INTO alunos (nome, telefone, endereco, cpf, saldoDevedor) VALUES "
+			stmt.executeUpdate("INSERT INTO alunos (nome, telefone, endereco, cpf, saldoDevedor, dataCadastro) VALUES "
 					+ "('" + telaCadastroAluno.getNomeField().getText() + "','"
 					+ telaCadastroAluno.getTelefoneFormatField().getText().replaceAll("\\D", "") + "','"
 					+ telaCadastroAluno.getEnderecoField().getText() + "','"
 					+ telaCadastroAluno.getCpfFormatField().getText().replaceAll("\\D", "") + "','"
-					+0.0
+					+0.0 + "','"
+					+telaCadastroAluno.getDataFormatField().getText().replaceAll("\\D", "")
 					+"')");
 
 		} catch (SQLException e) {
@@ -30,11 +31,11 @@ public class CRUDAlunos {
 		}
 	}  
 
-	public void delete(int id) {
+	public void delete(String cpf) {
 		try {
 
 			stmt = Conexao.con.createStatement();   	
-			stmt.executeUpdate("DELETE FROM alunos WHERE id = "+id);
+			stmt.executeUpdate("DELETE FROM alunos WHERE id = "+cpf);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -61,6 +62,17 @@ public class CRUDAlunos {
 			JOptionPane.showMessageDialog(null, "Error");
 		}
 	}
+	
+	public void updatePagaMensalidade(String cpf, String data) {
+		try {
+			stmt = Conexao.con.createStatement();
+			stmt.executeUpdate("UPDATE alunos SET dataCadastro = "+ data + " WHERE cpf = " + cpf);
+			JOptionPane.showMessageDialog(null, "Mensalidade paga com sucesso");
+		}catch(SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Error");
+		}
+	}
 
 	public Aluno select(String cpf) {
 		Aluno aluno = new Aluno();
@@ -75,6 +87,7 @@ public class CRUDAlunos {
 				aluno.setTelefone(rs.getString("telefone"));
 				aluno.setEndereco(rs.getString("endereco"));
 				aluno.setSaldoDevedor(rs.getDouble("saldoDevedor"));
+				aluno.setData(rs.getString("dataCadastro"));
 			}
 		} catch(SQLException e) {
 
@@ -86,11 +99,10 @@ public class CRUDAlunos {
 	}
 
 	public void listAll() throws Exception {
-		//ArrayList<Aluno> alunos = new ArrayList<Aluno>();
-		
+
 		stmt = Conexao.con.createStatement();
 		ResultSet rs=stmt.executeQuery("SELECT * FROM alunos");
-		
+
 		Aluno aluno = new Aluno();
 		while(rs.next()) {
 
@@ -99,13 +111,12 @@ public class CRUDAlunos {
 			aluno.setCPF(rs.getString("cpf"));
 			aluno.setSaldoDevedor(Double.parseDouble(rs.getString("saldoDevedor")));
 			aluno.setTelefone(rs.getString("telefone"));
+			aluno.setData(rs.getString("dataCadastro"));
 
-			//alunos.add(aluno);
 		}
 		rs.close();
-		//return alunos;
 	}
-
+	
 }
 
 
