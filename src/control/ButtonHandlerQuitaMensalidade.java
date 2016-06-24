@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.text.MaskFormatter;
 
-import dao.CRUDAlunos;
+import dao.CRUD;
 import view.TelaQuitaMensalidade;
 
 public class ButtonHandlerQuitaMensalidade implements ActionListener {
@@ -19,7 +19,7 @@ public class ButtonHandlerQuitaMensalidade implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==telaQuitaMensalidade.getPagarMensalidadeButton()) {
-			new CRUDAlunos().updatePagaMensalidade(telaQuitaMensalidade.getCpfFormatField().getText().replaceAll("\\D", ""), 
+			new CRUD().updatePagaMensalidade(telaQuitaMensalidade.getCpfFormatField().getText().replaceAll("\\D", ""), 
 					telaQuitaMensalidade.getDataFormatField().getText().replaceAll("\\D", ""));
 		}
 	}

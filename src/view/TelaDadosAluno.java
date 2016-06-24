@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerPesquisa;
-import dao.CRUDAlunos;
+import dao.CRUD;
 import model.Aluno;
 
 public class TelaDadosAluno extends JFrame {
@@ -21,7 +21,7 @@ public class TelaDadosAluno extends JFrame {
 	JFormattedTextField dataFormatField, cpfFormatField;
 	
 	Aluno aluno;
-	CRUDAlunos crud;
+	CRUD crud;
 	ButtonHandlerPesquisa handlerPesquisa;
 	TelaPesquisaAluno telaPesquisaAluno;
 

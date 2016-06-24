@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import model.Aluno;
 import view.TelaCadastroAluno;
 
-public class CRUDAlunos {
+public class CRUD {
 
 	public static Statement stmt;
 

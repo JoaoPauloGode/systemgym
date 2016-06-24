@@ -20,7 +20,7 @@ public class ButtonHandlerTabelaAlunos {
 		ResultSet rs = p.executeQuery();
 		while(rs.next()) {
 			telaListaAlunos.getModel().addRow(new Object[] {rs.getString("nome"), rs.getString("telefone"), 
-					rs.getString("endereco"), rs.getString("cpf"), rs.getString("saldoDevedor")});
+					rs.getString("endereco"), rs.getString("cpf"), rs.getString("saldoDevedor"), rs.getString("dataCadastro")});
 		}
 	}
 }

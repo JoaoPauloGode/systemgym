@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.text.MaskFormatter;
 
-import dao.CRUDAlunos;
+import dao.CRUD;
 import model.Aluno;
 import view.TelaDadosAluno;
 import view.TelaPesquisaAluno;
@@ -21,7 +21,7 @@ public class ButtonHandlerPesquisa implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==telapesquisa.getPesquisarButton()) {
-			aluno = new CRUDAlunos().select(telapesquisa.getCpfFormatField().getText().replaceAll("\\D", ""));
+			aluno = new CRUD().select(telapesquisa.getCpfFormatField().getText().replaceAll("\\D", ""));
 			telapesquisa.getCpfFormatField().setText("");
 			new TelaDadosAluno(aluno);
 

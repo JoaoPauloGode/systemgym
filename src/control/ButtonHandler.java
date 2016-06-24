@@ -52,7 +52,7 @@ public class ButtonHandler implements MouseListener {
 	public ButtonHandler(TelaQuitaMensalidade telaQuitaMensalidade) {
 		this.telaQuitaMensalidade=telaQuitaMensalidade;
 	}
-	
+
 	public ButtonHandler(TelaListaMensalidades telaListaMensalidades) {
 		this.telaListaMensalidades=telaListaMensalidades;
 	}

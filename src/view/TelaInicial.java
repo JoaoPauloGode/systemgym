@@ -28,7 +28,6 @@ public class TelaInicial extends JFrame {
 	RadioButtonHandler handlerR;
 	ButtonHandler handlerCadAl;
 	ButtonHandler handlerRemAl;
-	ButtonHandler handlerListAl;
 	ButtonHandler handlervenda;
 	ButtonHandler handlerPagamento;
 	ButtonHandler handlerPesquisa;
@@ -44,7 +43,6 @@ public class TelaInicial extends JFrame {
 		handlerR=new RadioButtonHandler(this);
 		handlerCadAl=new ButtonHandler(this);
 		handlerRemAl=new ButtonHandler(this);
-		handlerListAl=new ButtonHandler(this);
 		handlervenda=new ButtonHandler(this);
 		handlerPagamento=new ButtonHandler(this);
 		handlerPesquisa=new ButtonHandler(this);
@@ -136,7 +134,6 @@ public class TelaInicial extends JFrame {
 		
 		cadastrarAlunoButton.addMouseListener(handlerCadAl);
 		removerAlunoButton.addMouseListener(handlerRemAl);
-		listarAlunoButton.addMouseListener(handlerListAl);
 		realizarVendaButton.addMouseListener(handlervenda);
 		realizarPagamentoButton.addMouseListener(handlerPagamento);
 		pesquisarAlunoButton.addMouseListener(handlerPesquisa);

@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
-import dao.CRUDAlunos;
+import dao.CRUD;
 import view.TelaVenda;
 
 
@@ -26,7 +26,7 @@ public class ButtonHandlerVenda implements ActionListener {
 			}else {
 
 				try {
-					new CRUDAlunos().updateVenda(telaVenda.getCpfFormatField().getText().replaceAll("\\D", ""), Double.parseDouble(telaVenda.getValorField().getText()));
+					new CRUD().updateVenda(telaVenda.getCpfFormatField().getText().replaceAll("\\D", ""), Double.parseDouble(telaVenda.getValorField().getText()));
 					JOptionPane.showMessageDialog(null, "Venda Efetuada");
 				} catch (java.lang.IndexOutOfBoundsException e2) {
 					e2.printStackTrace();

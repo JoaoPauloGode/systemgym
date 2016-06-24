@@ -31,7 +31,7 @@ public class TelaListaAlunos extends JFrame {
 		model.addColumn("Endereco");
 		model.addColumn("CPF");
 		model.addColumn("Saldo Devedor");
-		model.addColumn("Mensalidades");
+		model.addColumn("Ultima Mensalidade Paga");
 		handlerTabela=new ButtonHandlerTabelaAlunos(this);
 		try {
 			handlerTabela.inserirLinha();
