@@ -16,11 +16,11 @@ public class ButtonHandlerTabelaMensalidades {
 	
 	public void inserirMensalidadeQuitada() throws Exception {
 		
-		PreparedStatement p =  Conexao.con.prepareStatement("select cpfM, datas from mensalidades as ms inner join alunos as al on ms.cpfM=al.cpf");
+		PreparedStatement p =  Conexao.con.prepareStatement("select nome, cpf, dataCadastro from alunos");
 		
 		ResultSet rs = p.executeQuery();
 		while(rs.next()) {
-			telaListaMensalidades.getModel().addRow(new Object[] {rs.getString("cpfM"), rs.getString("datas")});
+			telaListaMensalidades.getModel().addRow(new Object[] {rs.getString("nome"), rs.getString("cpf"), rs.getString("dataCadastro")});
 		}
 	}
 }

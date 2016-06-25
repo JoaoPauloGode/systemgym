@@ -22,7 +22,7 @@ public class TelaQuitaMensalidade extends JFrame {
 	ButtonHandlerQuitaMensalidade handlerQuitaMensalidade;
 	
 	public TelaQuitaMensalidade() {
-		super("Tela De Mensalidades");
+		super("Tela Quita Mensalidades");
 		
 		handlerQuitaMensalidade=new ButtonHandlerQuitaMensalidade(this);
 		
