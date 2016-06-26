@@ -1,7 +1,7 @@
 package control;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 import view.TelaCadastroAluno;
@@ -14,7 +14,7 @@ import view.TelaQuitaMensalidade;
 import view.TelaRemoverAluno;
 import view.TelaVenda;
 
-public class ButtonHandler implements MouseListener {
+public class ButtonHandler implements ActionListener {
 
 	TelaInicial telainicial;
 	TelaCadastroAluno telaCadastroAluno;
@@ -58,7 +58,7 @@ public class ButtonHandler implements MouseListener {
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e) {
+	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==telainicial.getCadastrarAlunoButton()) {
 			new TelaCadastroAluno();
 		}else if(e.getSource()==telainicial.getRemoverAlunoButton()) {
@@ -83,29 +83,4 @@ public class ButtonHandler implements MouseListener {
 			}
 		}
 	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
 }

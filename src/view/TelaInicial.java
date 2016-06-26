@@ -129,15 +129,15 @@ public class TelaInicial extends JFrame {
 		mensalidadeRadioButton.addActionListener(handlerR);
 		vendaRadioButton.addActionListener(handlerR);
 		
-		quitarMensalidadeButton.addMouseListener(handlerQuitaMensalidade);
-		listarMensalidadesButton.addMouseListener(handlerListaMensalidades);
+		quitarMensalidadeButton.addActionListener(handlerQuitaMensalidade);
+		listarMensalidadesButton.addActionListener(handlerListaMensalidades);
 		
-		cadastrarAlunoButton.addMouseListener(handlerCadAl);
-		removerAlunoButton.addMouseListener(handlerRemAl);
-		realizarVendaButton.addMouseListener(handlervenda);
-		realizarPagamentoButton.addMouseListener(handlerPagamento);
-		pesquisarAlunoButton.addMouseListener(handlerPesquisa);
-		listarAlunoButton.addMouseListener(handlertabela);
+		cadastrarAlunoButton.addActionListener(handlerCadAl);
+		removerAlunoButton.addActionListener(handlerRemAl);
+		realizarVendaButton.addActionListener(handlervenda);
+		realizarPagamentoButton.addActionListener(handlerPagamento);
+		pesquisarAlunoButton.addActionListener(handlerPesquisa);
+		listarAlunoButton.addActionListener(handlertabela);
 		
 		setSize(500, 500);
 		setLocationRelativeTo(null);

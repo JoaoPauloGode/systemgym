@@ -8,18 +8,24 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 
+import control.ButtonHandlerTrocaSenha;
+
 public class TelaTrocaSenha extends JFrame {
 	
 	/**
 	 * @author Joao Paulo
 	 */
 	private static final long serialVersionUID = 1L;
-	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
+	private JPasswordField senhaAtualField;
+	private JPasswordField senhaNovaField;
 	private JButton alterarButton;
+	
+	private ButtonHandlerTrocaSenha handlerTrocaSenha;
 
 	public TelaTrocaSenha() {
 		super("Tela Troca Senha");
+		
+		handlerTrocaSenha=new ButtonHandlerTrocaSenha(this);
 		
 		getContentPane().setBackground(Color.BLACK);
 		getContentPane().setLayout(null);
@@ -38,21 +44,34 @@ public class TelaTrocaSenha extends JFrame {
 		lblNovaSenha.setBounds(29, 73, 88, 14);
 		getContentPane().add(lblNovaSenha);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(110, 37, 88, 20);
-		getContentPane().add(passwordField);
+		senhaAtualField = new JPasswordField();
+		senhaAtualField.setBounds(110, 37, 88, 20);
+		getContentPane().add(senhaAtualField);
 		
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setBounds(110, 71, 88, 20);
-		getContentPane().add(passwordField_1);
+		senhaNovaField = new JPasswordField();
+		senhaNovaField.setBounds(110, 71, 88, 20);
+		getContentPane().add(senhaNovaField);
 		
 		alterarButton = new JButton("Alterar");
 		alterarButton.setBounds(276, 179, 89, 23);
 		getContentPane().add(alterarButton);
+		alterarButton.addActionListener(handlerTrocaSenha);
 		
 		setSize(381, 241);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
+	}
+
+	public JPasswordField getSenhaAtualField() {
+		return senhaAtualField;
+	}
+
+	public JPasswordField getSenhaNovaField() {
+		return senhaNovaField;
+	}
+
+	public JButton getAlterarButton() {
+		return alterarButton;
 	}
 }
