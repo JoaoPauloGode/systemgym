@@ -140,7 +140,6 @@ public class TelaInicial extends JFrame {
 		listarAlunoButton.addMouseListener(handlertabela);
 		
 		setSize(500, 500);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
