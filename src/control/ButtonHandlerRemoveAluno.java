@@ -22,7 +22,7 @@ public class ButtonHandlerRemoveAluno implements ActionListener {
 		if(e.getSource()==telaRemoveAluno.getRemoverButton()) {
 			
 			try {
-				new CRUD().delete(telaRemoveAluno.getCpfFormatField().getText());
+				new CRUD().delete(telaRemoveAluno.getCpfFormatField().getText().replaceAll("\\D", ""));
 				JOptionPane.showMessageDialog(null, "Aluno Removido do BD");
 				
 			} catch (java.lang.IndexOutOfBoundsException e2) {

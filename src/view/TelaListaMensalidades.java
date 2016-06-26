@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.SQLException;
 
 import javax.swing.JFrame;
@@ -30,6 +32,7 @@ public class TelaListaMensalidades extends JFrame {
 		model.addColumn("Nome");
 		model.addColumn("CPF");
 		model.addColumn("Utima Mensalidade Paga");
+		
 		handlerTabelaMensalidades=new ButtonHandlerTabelaMensalidades(this);
 
 		try {
@@ -39,12 +42,17 @@ public class TelaListaMensalidades extends JFrame {
 		}
 
 		table = new JTable(model);
+		table.setFont(new Font("Arial", Font.BOLD, 14));
+		table.setForeground(Color.CYAN);
+		table.setBackground(Color.BLACK);
+		table.setCellEditor(null);
+		table.setSelectionBackground(Color.WHITE);
 
 		scroll = new JScrollPane(table);		
 		add(scroll,BorderLayout.CENTER);
 
 		setSize(500, 500);
-		setResizable(false);
+		setResizable(true);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}

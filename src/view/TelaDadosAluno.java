@@ -68,7 +68,6 @@ public class TelaDadosAluno extends JFrame {
 		cpfFormatField=new JFormattedTextField(handlerPesquisa.Mascara("###.###.###-##"));
 		idField=new JTextField(aluno.getId());
 		saldoDevedorField=new JTextField(String.valueOf(aluno.getSaldoDevedor()));
-		dataFormatField=new JFormattedTextField(handlerPesquisa.Mascara("##/##/####"));
 		
 		telaFundoLabel.add(nomeField);
 		telaFundoLabel.add(telefoneField);
@@ -76,7 +75,6 @@ public class TelaDadosAluno extends JFrame {
 		telaFundoLabel.add(cpfFormatField);
 		telaFundoLabel.add(idField);
 		telaFundoLabel.add(saldoDevedorField);
-		telaFundoLabel.add(dataFormatField);
 		
 		nomeField.setBounds(70, 50, 190, 30);
 		telefoneField.setBounds(80, 90, 180, 30);
@@ -84,7 +82,6 @@ public class TelaDadosAluno extends JFrame {
 		cpfFormatField.setBounds(50, 170, 210, 30);
 		idField.setBounds(45, 210, 215, 30);
 		saldoDevedorField.setBounds(110, 250, 150, 30);
-		dataFormatField.setBounds(180, 290, 100, 30);
 		
 		nomeField.setText(aluno.getNome());
 		telefoneField.setText(aluno.getTelefone());
@@ -92,6 +89,9 @@ public class TelaDadosAluno extends JFrame {
 		cpfFormatField.setText(aluno.getCPF());
 		idField.setText(String.valueOf(aluno.getId()));
 		saldoDevedorField.setText(String.valueOf(aluno.getSaldoDevedor()));
+		dataFormatField=new JFormattedTextField(handlerPesquisa.Mascara("##/##/####"));
+		getContentPane().add(dataFormatField);
+		dataFormatField.setBounds(159, 289, 100, 30);
 		dataFormatField.setText(aluno.getData());
 		
 		setSize(500, 500);

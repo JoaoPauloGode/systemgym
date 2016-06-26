@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import model.Aluno;
 import view.TelaCadastroAluno;
+import view.TelaDadosAluno;
 
 public class CRUD {
 
@@ -35,7 +36,7 @@ public class CRUD {
 		try {
 
 			stmt = Conexao.con.createStatement();   	
-			stmt.executeUpdate("DELETE FROM alunos WHERE id = "+cpf);
+			stmt.executeUpdate("DELETE FROM alunos WHERE cpf = "+cpf);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -88,6 +89,7 @@ public class CRUD {
 				aluno.setEndereco(rs.getString("endereco"));
 				aluno.setSaldoDevedor(rs.getDouble("saldoDevedor"));
 				aluno.setData(rs.getString("dataCadastro"));
+				new TelaDadosAluno(aluno);
 			}
 		} catch(SQLException e) {
 

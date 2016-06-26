@@ -7,7 +7,6 @@ import javax.swing.text.MaskFormatter;
 
 import dao.CRUD;
 import model.Aluno;
-import view.TelaDadosAluno;
 import view.TelaPesquisaAluno;
 
 public class ButtonHandlerPesquisa implements ActionListener {
@@ -23,7 +22,6 @@ public class ButtonHandlerPesquisa implements ActionListener {
 		if(e.getSource()==telapesquisa.getPesquisarButton()) {
 			aluno = new CRUD().select(telapesquisa.getCpfFormatField().getText().replaceAll("\\D", ""));
 			telapesquisa.getCpfFormatField().setText("");
-			new TelaDadosAluno(aluno);
 
 		}
 	}

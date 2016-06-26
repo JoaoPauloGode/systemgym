@@ -16,7 +16,7 @@ public class ButtonHandlerTabelaMensalidades {
 	
 	public void inserirMensalidadeQuitada() throws Exception {
 		
-		PreparedStatement p =  Conexao.con.prepareStatement("select nome, cpf, dataCadastro from alunos");
+		PreparedStatement p =  Conexao.con.prepareStatement("select nome, cpf, dataCadastro from alunos order by nome");
 		
 		ResultSet rs = p.executeQuery();
 		while(rs.next()) {
