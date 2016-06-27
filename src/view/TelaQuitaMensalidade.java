@@ -1,6 +1,8 @@
 package view;
 
-import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -15,7 +17,7 @@ public class TelaQuitaMensalidade extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private JLabel cpfLabel, dataLabel, telaFundoLabel;
+	private JLabel cpfLabel, dataLabel;
 	private JFormattedTextField cpfFormatField, dataFormatField;
 	private JButton pagarMensalidadeButton;
 	
@@ -23,35 +25,42 @@ public class TelaQuitaMensalidade extends JFrame {
 	
 	public TelaQuitaMensalidade() {
 		super("Tela Quita Mensalidades");
+		getContentPane().setBackground(Color.BLACK);
+		
+		getContentPane().setLayout(null);
 		
 		handlerQuitaMensalidade=new ButtonHandlerQuitaMensalidade(this);
 		
-		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
-		add(telaFundoLabel);
-		
 		cpfLabel=new JLabel("Inssira o CPF: ");
-		telaFundoLabel.add(cpfLabel);
-		cpfLabel.setBounds(20, 20, 160, 30);
+		cpfLabel.setForeground(Color.CYAN);
+		cpfLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		getContentPane().add(cpfLabel);
+		cpfLabel.setBounds(10, 11, 115, 30);
 		
 		cpfFormatField=new JFormattedTextField(handlerQuitaMensalidade.Mascara("###.###.###-##"));
-		telaFundoLabel.add(cpfFormatField);
-		cpfFormatField.setBounds(120, 20, 110, 30);
+		cpfFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		getContentPane().add(cpfFormatField);
+		cpfFormatField.setBounds(10, 39, 110, 30);
 		
 		dataLabel=new JLabel("Inssira a Data: ");
-		telaFundoLabel.add(dataLabel);
-		dataLabel.setBounds(20, 60, 160, 30);
+		dataLabel.setForeground(Color.CYAN);
+		dataLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		getContentPane().add(dataLabel);
+		dataLabel.setBounds(10, 86, 110, 30);
 		
 		dataFormatField=new JFormattedTextField(handlerQuitaMensalidade.Mascara("##/##/####"));
-		telaFundoLabel.add(dataFormatField);
-		dataFormatField.setBounds(120, 60, 80, 30);
+		dataFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		getContentPane().add(dataFormatField);
+		dataFormatField.setBounds(10, 115, 80, 30);
 		
 		pagarMensalidadeButton=new JButton("Pagar Mensalidade");
-		telaFundoLabel.add(pagarMensalidadeButton);
-		pagarMensalidadeButton.setBounds(340, 400, 150, 30);
+		pagarMensalidadeButton.setBackground(Color.CYAN);
+		getContentPane().add(pagarMensalidadeButton);
+		pagarMensalidadeButton.setBounds(234, 281, 150, 30);
 		
 		pagarMensalidadeButton.addActionListener(handlerQuitaMensalidade);
 		
-		setSize(500, 500);
+		setSize(400, 350);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);

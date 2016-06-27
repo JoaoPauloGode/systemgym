@@ -1,12 +1,12 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
 import control.ButtonHandler;
@@ -19,7 +19,6 @@ public class TelaInicial extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private JLabel telaFundoLabel;
 	private JButton cadastrarAlunoButton, removerAlunoButton, listarAlunoButton, pesquisarAlunoButton,
 	realizarVendaButton, realizarPagamentoButton, listarMensalidadesButton, quitarMensalidadeButton;
 	private JRadioButton alunoRadioButton, mensalidadeRadioButton, vendaRadioButton;
@@ -37,6 +36,9 @@ public class TelaInicial extends JFrame {
 	
 	public TelaInicial() {
 		super("Tela Inicial");
+		getContentPane().setBackground(Color.BLACK);
+		getContentPane().setForeground(Color.BLACK);
+		setBackground(Color.BLACK);
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage("res\\qn.jpg"));
 		
@@ -50,23 +52,31 @@ public class TelaInicial extends JFrame {
 		handlerQuitaMensalidade=new ButtonHandler(this);
 		handlerListaMensalidades=new ButtonHandler(this);
 		
-		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
-		add(telaFundoLabel);
+		getContentPane().setLayout(null);
 		
 		/**
 		 * ================================================================
 		 */
 		alunoRadioButton=new JRadioButton("Aluno");
+		alunoRadioButton.setBackground(Color.BLACK);
+		alunoRadioButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		alunoRadioButton.setForeground(Color.CYAN);
 		mensalidadeRadioButton=new JRadioButton("Mensalidade");
+		mensalidadeRadioButton.setBackground(Color.BLACK);
+		mensalidadeRadioButton.setForeground(Color.CYAN);
+		mensalidadeRadioButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		vendaRadioButton=new JRadioButton("Venda/Pagamento");
+		vendaRadioButton.setBackground(Color.BLACK);
+		vendaRadioButton.setForeground(Color.CYAN);
+		vendaRadioButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		
-		telaFundoLabel.add(alunoRadioButton);
-		telaFundoLabel.add(mensalidadeRadioButton);
-		telaFundoLabel.add(vendaRadioButton);
+		getContentPane().add(alunoRadioButton);
+		getContentPane().add(mensalidadeRadioButton);
+		getContentPane().add(vendaRadioButton);
 		
-		alunoRadioButton.setBounds(20, 20, 135, 30);
-		mensalidadeRadioButton.setBounds(20, 60, 135, 30);
-		vendaRadioButton.setBounds(20, 100, 135, 30);
+		alunoRadioButton.setBounds(6, 7, 135, 30);
+		mensalidadeRadioButton.setBounds(6, 40, 135, 30);
+		vendaRadioButton.setBounds(6, 73, 150, 30);
 		
 		bg=new ButtonGroup();
 		bg.add(alunoRadioButton);
@@ -78,19 +88,23 @@ public class TelaInicial extends JFrame {
 		 */
 		
 		cadastrarAlunoButton=new JButton("Cadastrar Aluno");
+		cadastrarAlunoButton.setBackground(Color.CYAN);
 		removerAlunoButton=new JButton("Remover Aluno");
+		removerAlunoButton.setBackground(Color.CYAN);
 		listarAlunoButton=new JButton("Listar Aluno");
+		listarAlunoButton.setBackground(Color.CYAN);
 		pesquisarAlunoButton=new JButton("Pesquisar Aluno");
+		pesquisarAlunoButton.setBackground(Color.CYAN);
 		
-		telaFundoLabel.add(cadastrarAlunoButton);
-		telaFundoLabel.add(removerAlunoButton);
-		telaFundoLabel.add(listarAlunoButton);
-		telaFundoLabel.add(pesquisarAlunoButton);
+		getContentPane().add(cadastrarAlunoButton);
+		getContentPane().add(removerAlunoButton);
+		getContentPane().add(listarAlunoButton);
+		getContentPane().add(pesquisarAlunoButton);
 		
-		cadastrarAlunoButton.setBounds(350, 300, 140, 30);
-		removerAlunoButton.setBounds(350, 340, 140, 30);
-		listarAlunoButton.setBounds(350, 380, 140, 30);
-		pesquisarAlunoButton.setBounds(350, 420, 140, 30);
+		cadastrarAlunoButton.setBounds(283, 208, 140, 30);
+		removerAlunoButton.setBounds(283, 249, 140, 30);
+		listarAlunoButton.setBounds(283, 288, 140, 30);
+		pesquisarAlunoButton.setBounds(283, 329, 140, 30);
 		
 		cadastrarAlunoButton.setVisible(false);
 		removerAlunoButton.setVisible(false);
@@ -98,25 +112,31 @@ public class TelaInicial extends JFrame {
 		pesquisarAlunoButton.setVisible(false);
 		//=================================================================
 		quitarMensalidadeButton=new JButton("Quitar Mensalidade");
+		quitarMensalidadeButton.setBackground(Color.CYAN);
 		listarMensalidadesButton=new JButton("Listar Mensalidades");
+		listarMensalidadesButton.setBackground(Color.CYAN);
 		
-		telaFundoLabel.add(quitarMensalidadeButton);
-		telaFundoLabel.add(listarMensalidadesButton);
+		getContentPane().add(quitarMensalidadeButton);
+		getContentPane().add(listarMensalidadesButton);
 		
-		quitarMensalidadeButton.setBounds(340, 380, 150, 30);
-		listarMensalidadesButton.setBounds(340, 420, 150, 30);
+		quitarMensalidadeButton.setBounds(273, 290, 150, 30);
+		listarMensalidadesButton.setBounds(273, 331, 150, 30);
 		
 		quitarMensalidadeButton.setVisible(false);
 		listarMensalidadesButton.setVisible(false);
 		//=================================================================
 		realizarVendaButton=new JButton("Efetuar Venda");
+		realizarVendaButton.setBackground(Color.CYAN);
+		realizarVendaButton.setForeground(Color.BLACK);
 		realizarPagamentoButton=new JButton("Efetuar Pagamento");
+		realizarPagamentoButton.setBackground(Color.CYAN);
+		realizarPagamentoButton.setForeground(Color.BLACK);
 		
-		telaFundoLabel.add(realizarVendaButton);
-		telaFundoLabel.add(realizarPagamentoButton);
+		getContentPane().add(realizarVendaButton);
+		getContentPane().add(realizarPagamentoButton);
 		
-		realizarVendaButton.setBounds(340, 420, 150, 30);
-		realizarPagamentoButton.setBounds(340, 380, 150, 30);
+		realizarVendaButton.setBounds(273, 290, 150, 30);
+		realizarPagamentoButton.setBounds(273, 331, 150, 30);
 		
 		realizarVendaButton.setVisible(false);
 		realizarPagamentoButton.setVisible(false);
@@ -139,16 +159,12 @@ public class TelaInicial extends JFrame {
 		pesquisarAlunoButton.addActionListener(handlerPesquisa);
 		listarAlunoButton.addActionListener(handlertabela);
 		
-		setSize(500, 500);
+		setSize(439, 398);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
 	}	
 	
-	public JLabel getTelaFundoLabel() {
-		return telaFundoLabel;
-	}
-
 	public JButton getCadastrarAlunoButton() {
 		return cadastrarAlunoButton;
 	}
@@ -224,5 +240,4 @@ public class TelaInicial extends JFrame {
 	public JRadioButton getVendaRadioButton() {
 		return vendaRadioButton;
 	}
-
 }

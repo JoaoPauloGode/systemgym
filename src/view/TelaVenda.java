@@ -1,6 +1,5 @@
 package view;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -8,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerVenda;
+import java.awt.Font;
+import java.awt.Color;
 
 public class TelaVenda extends JFrame {
 	
@@ -16,7 +17,7 @@ public class TelaVenda extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private JLabel cpfLabel, valorLabel, telaFundoLabel;
+	private JLabel cpfLabel, valorLabel;
 	private JTextField valorField;
 	private JFormattedTextField cpfFormatField;
 	private JButton debitarButton;
@@ -25,35 +26,47 @@ public class TelaVenda extends JFrame {
 	
 	public TelaVenda() {
 		super("Tela De Vendas");
+		getContentPane().setBackground(Color.BLACK);
 		
 		handlerVenda=new ButtonHandlerVenda(this);
-		
-		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
-		add(telaFundoLabel);
+		getContentPane().setLayout(null);
 		
 		cpfLabel=new JLabel("Inssira o CPF: ");
-		telaFundoLabel.add(cpfLabel);
+		cpfLabel.setForeground(Color.CYAN);
+		cpfLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		cpfLabel.setBounds(20, 20, 160, 30);
+		getContentPane().add(cpfLabel);
 		
 		cpfFormatField=new JFormattedTextField(handlerVenda.Mascara("###.###.###-##"));
-		telaFundoLabel.add(cpfFormatField);
-		cpfFormatField.setBounds(120, 20, 110, 30);
+		cpfFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		cpfFormatField.setBounds(20, 49, 110, 30);
+		getContentPane().add(cpfFormatField);
 		
 		valorLabel=new JLabel("Inssira o Valor: ");
-		telaFundoLabel.add(valorLabel);
-		valorLabel.setBounds(20, 60, 160, 30);
+		valorLabel.setForeground(Color.CYAN);
+		valorLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		valorLabel.setBounds(20, 90, 110, 30);
+		getContentPane().add(valorLabel);
 		
 		valorField=new JTextField(10);
-		telaFundoLabel.add(valorField);
-		valorField.setBounds(120, 60, 50, 30);
+		valorField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		valorField.setBounds(20, 119, 50, 30);
+		getContentPane().add(valorField);
 		
 		debitarButton=new JButton("Efetuar Venda");
-		telaFundoLabel.add(debitarButton);
-		debitarButton.setBounds(360, 400, 120, 30);
+		debitarButton.setBackground(Color.CYAN);
+		debitarButton.setBounds(264, 281, 120, 30);
+		getContentPane().add(debitarButton);
+		
+		JLabel lblTelaVenda = new JLabel("Tela Venda");
+		lblTelaVenda.setForeground(Color.CYAN);
+		lblTelaVenda.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 20));
+		lblTelaVenda.setBounds(274, 11, 110, 30);
+		getContentPane().add(lblTelaVenda);
 		
 		debitarButton.addActionListener(handlerVenda);
 		
-		setSize(500, 500);
+		setSize(400, 350);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
@@ -70,5 +83,4 @@ public class TelaVenda extends JFrame {
 	public JTextField getValorField() {
 		return valorField;
 	}
-	
 }

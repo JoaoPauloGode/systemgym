@@ -1,6 +1,8 @@
 package view;
 
-import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -8,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerCadastroAluno;
-import java.awt.Font;
 
 public class TelaCadastroAluno extends JFrame {
 	
@@ -16,78 +17,95 @@ public class TelaCadastroAluno extends JFrame {
 	 * @author JoaoPaulo
 	 */
 	private static final long serialVersionUID = 1L;
-	private JLabel telaFundoLabel, nomeLabel, enderecoLabel, telefoneLabel, cpfLabel, dataLabel; 
+	private JLabel nomeLabel, enderecoLabel, telefoneLabel, cpfLabel, dataLabel; 
 	private JTextField nomeField, enderecoField;
 	private JFormattedTextField cpfFormatField, telefoneFormatField, dataFormatField;
 	private JButton cadastroRealizaAlunoButton;
 	
 	private ButtonHandlerCadastroAluno handlerAluno;
+	private JLabel lblTelaCadastro;
 	
 	public TelaCadastroAluno() {
 		super("Tela de Cadastro de Alunos");
+		getContentPane().setBackground(Color.BLACK);
+		setBackground(Color.BLACK);
+		getContentPane().setForeground(Color.BLACK);
 		
 		handlerAluno=new ButtonHandlerCadastroAluno(this);
 		getContentPane().setLayout(null);
 		
-		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
-		telaFundoLabel.setBounds(0, 0, 494, 472);
-		getContentPane().add(telaFundoLabel);
 		/**
 		 *==============================================================================
 		 */
 		nomeLabel=new JLabel("Nome: ");
-		nomeLabel.setFont(new Font("Arial", Font.BOLD, 14));
+		nomeLabel.setForeground(Color.CYAN);
+		nomeLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		enderecoLabel=new JLabel("Endereço: ");
-		enderecoLabel.setFont(new Font("Arial", Font.BOLD, 14));
+		enderecoLabel.setForeground(Color.CYAN);
+		enderecoLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		telefoneLabel=new JLabel("Telefone: ");
-		telefoneLabel.setFont(new Font("Arial", Font.BOLD, 14));
+		telefoneLabel.setForeground(Color.CYAN);
+		telefoneLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		cpfLabel=new JLabel("CPF: ");
-		cpfLabel.setFont(new Font("Arial", Font.BOLD, 14));
+		cpfLabel.setForeground(Color.CYAN);
+		cpfLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		dataLabel=new JLabel("Data: ");
-		dataLabel.setFont(new Font("Arial", Font.BOLD, 14));
+		dataLabel.setForeground(Color.CYAN);
+		dataLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		
-		telaFundoLabel.add(nomeLabel);
-		telaFundoLabel.add(enderecoLabel);
-		telaFundoLabel.add(telefoneLabel);
-		telaFundoLabel.add(cpfLabel);
-		telaFundoLabel.add(dataLabel);
+		getContentPane().add(nomeLabel);
+		getContentPane().add(enderecoLabel);
+		getContentPane().add(telefoneLabel);
+		getContentPane().add(cpfLabel);
+		getContentPane().add(dataLabel);
 		
-		nomeLabel.setBounds(20, 20, 120, 30);
-		enderecoLabel.setBounds(20, 60, 120, 30);
-		telefoneLabel.setBounds(20, 100, 120, 30);
-		cpfLabel.setBounds(20, 140, 120, 30);
-		dataLabel.setBounds(20, 180, 120, 30);
+		nomeLabel.setBounds(10, 62, 50, 30);
+		enderecoLabel.setBounds(227, 62, 76, 30);
+		telefoneLabel.setBounds(179, 145, 76, 30);
+		cpfLabel.setBounds(10, 145, 50, 30);
+		dataLabel.setBounds(369, 145, 50, 30);
 		
 		//=============================================================================
 		nomeField=new JTextField(50);
+		nomeField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		
 		cadastroRealizaAlunoButton=new JButton("Cadastrar");
 		
-		telaFundoLabel.add(nomeField);
-		telaFundoLabel.add(cadastroRealizaAlunoButton);
+		getContentPane().add(nomeField);
+		getContentPane().add(cadastroRealizaAlunoButton);
 		
-		nomeField.setBounds(80, 20, 120, 30);
-		cadastroRealizaAlunoButton.setBounds(360, 400, 120, 30);
+		nomeField.setBounds(10, 94, 207, 30);
+		cadastroRealizaAlunoButton.setBounds(333, 281, 112, 30);
 		enderecoField=new JTextField(100);
-		enderecoField.setBounds(97, 60, 120, 30);
+		enderecoField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		enderecoField.setBounds(227, 94, 218, 30);
 		getContentPane().add(enderecoField);
 		telefoneFormatField=new JFormattedTextField(handlerAluno.Mascara("(##)#.####-####"));
-		telefoneFormatField.setBounds(86, 101, 120, 30);
+		telefoneFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		telefoneFormatField.setBounds(179, 175, 137, 30);
 		getContentPane().add(telefoneFormatField);
 		dataFormatField=new JFormattedTextField(handlerAluno.Mascara("##/##/####"));
-		dataFormatField.setBounds(62, 180, 80, 30);
+		dataFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		dataFormatField.setBounds(369, 175, 76, 30);
 		getContentPane().add(dataFormatField);
 		dataFormatField.setToolTipText("Data de matricula do aluno");
 		cpfFormatField=new JFormattedTextField(handlerAluno.Mascara("###.###.###-##"));
-		cpfFormatField.setBounds(62, 142, 120, 30);
+		cpfFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+		cpfFormatField.setBounds(10, 175, 137, 30);
 		getContentPane().add(cpfFormatField);
+		
+		lblTelaCadastro = new JLabel("Tela Cadastro");
+		lblTelaCadastro.setForeground(Color.CYAN);
+		lblTelaCadastro.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 20));
+		lblTelaCadastro.setBounds(312, 11, 133, 34);
+		getContentPane().add(lblTelaCadastro);
 		
 		/**
 		 *==============================================================================
 		 */
 		
 		cadastroRealizaAlunoButton.addActionListener(handlerAluno);
-		setSize(500, 500);
+		setSize(461, 350);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setVisible(true);
@@ -116,5 +134,4 @@ public class TelaCadastroAluno extends JFrame {
 	public JFormattedTextField getDataFormatField() {
 		return dataFormatField;
 	}
-
 }

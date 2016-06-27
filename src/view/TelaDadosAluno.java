@@ -1,6 +1,8 @@
 package view;
 
-import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,7 +18,7 @@ public class TelaDadosAluno extends JFrame {
 	 * @author Joao Paulo
 	 */
 	private static final long serialVersionUID = 1L;
-	JLabel telaFundoLabel, nomeLabel, telefoneLabel, enderecoLabel, cpfLabel, idLabel, saldoDevedorLabel, dataLabel;
+	JLabel nomeLabel, telefoneLabel, enderecoLabel, cpfLabel, idLabel, saldoDevedorLabel, dataLabel;
 	JTextField nomeField, telefoneField, enderecofield, idField, saldoDevedorField;
 	JFormattedTextField dataFormatField, cpfFormatField;
 	
@@ -24,64 +26,82 @@ public class TelaDadosAluno extends JFrame {
 	CRUD crud;
 	ButtonHandlerPesquisa handlerPesquisa;
 	TelaPesquisaAluno telaPesquisaAluno;
+	private JLabel lblTelaDados;
 
 	public TelaDadosAluno(Aluno aluno) {
 		super("Dados Do Aluno");
+		getContentPane().setBackground(Color.BLACK);
 		
 		this.aluno=aluno;
 		getContentPane().setLayout(null);
 		
-		telaFundoLabel=new JLabel(new ImageIcon("res\\simbolo.jpg"));
-		telaFundoLabel.setBounds(0, 0, 484, 462);
-		getContentPane().add(telaFundoLabel);
-		
 		handlerPesquisa=new ButtonHandlerPesquisa(telaPesquisaAluno);
 		
 		nomeLabel=new JLabel("Nome: ");
+		nomeLabel.setForeground(Color.CYAN);
+		nomeLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		telefoneLabel=new JLabel("Telefone: ");
+		telefoneLabel.setForeground(Color.CYAN);
+		telefoneLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		enderecoLabel=new JLabel("Endereço: ");
+		enderecoLabel.setForeground(Color.CYAN);
+		enderecoLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		cpfLabel=new JLabel("CPF: ");
+		cpfLabel.setForeground(Color.CYAN);
+		cpfLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		idLabel=new JLabel("ID: ");
+		idLabel.setForeground(Color.CYAN);
+		idLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		saldoDevedorLabel=new JLabel("Saldo Devedor: ");
+		saldoDevedorLabel.setForeground(Color.CYAN);
+		saldoDevedorLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		dataLabel=new JLabel("Última mensalidade paga:" );
+		dataLabel.setForeground(Color.CYAN);
+		dataLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		
-		telaFundoLabel.add(nomeLabel);
-		telaFundoLabel.add(telefoneLabel);
-		telaFundoLabel.add(enderecoLabel);
-		telaFundoLabel.add(cpfLabel);
-		telaFundoLabel.add(idLabel);
-		telaFundoLabel.add(saldoDevedorLabel);
-		telaFundoLabel.add(dataLabel);
+		getContentPane().add(nomeLabel);
+		getContentPane().add(telefoneLabel);
+		getContentPane().add(enderecoLabel);
+		getContentPane().add(cpfLabel);
+		getContentPane().add(idLabel);
+		getContentPane().add(saldoDevedorLabel);
+		getContentPane().add(dataLabel);
 		
-		nomeLabel.setBounds(20, 50, 180, 30);
-		telefoneLabel.setBounds(20, 90, 180, 30);
-		enderecoLabel.setBounds(20, 130, 180, 30);
-		cpfLabel.setBounds(20, 170, 180, 30);
-		idLabel.setBounds(20, 210, 180, 30);
-		saldoDevedorLabel.setBounds(20, 250, 180, 30);
-		dataLabel.setBounds(20, 290, 180, 30);
+		nomeLabel.setBounds(10, 32, 53, 30);
+		telefoneLabel.setBounds(10, 165, 73, 30);
+		enderecoLabel.setBounds(10, 99, 84, 30);
+		cpfLabel.setBounds(10, 239, 42, 30);
+		idLabel.setBounds(204, 165, 35, 30);
+		saldoDevedorLabel.setBounds(204, 239, 106, 30);
+		dataLabel.setBounds(10, 328, 180, 30);
 		
 		//=====================================================================================================================		
 		nomeField=new JTextField(aluno.getNome());
+		nomeField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		telefoneField=new JTextField(aluno.getTelefone());
+		telefoneField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		enderecofield=new JTextField(aluno.getEndereco());
+		enderecofield.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		cpfFormatField=new JFormattedTextField(handlerPesquisa.Mascara("###.###.###-##"));
+		cpfFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		idField=new JTextField(aluno.getId());
+		idField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		saldoDevedorField=new JTextField(String.valueOf(aluno.getSaldoDevedor()));
+		saldoDevedorField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		
-		telaFundoLabel.add(nomeField);
-		telaFundoLabel.add(telefoneField);
-		telaFundoLabel.add(enderecofield);
-		telaFundoLabel.add(cpfFormatField);
-		telaFundoLabel.add(idField);
-		telaFundoLabel.add(saldoDevedorField);
+		getContentPane().add(nomeField);
+		getContentPane().add(telefoneField);
+		getContentPane().add(enderecofield);
+		getContentPane().add(cpfFormatField);
+		getContentPane().add(idField);
+		getContentPane().add(saldoDevedorField);
 		
-		nomeField.setBounds(70, 50, 190, 30);
-		telefoneField.setBounds(80, 90, 180, 30);
-		enderecofield.setBounds(80, 130, 180, 30);
-		cpfFormatField.setBounds(50, 170, 210, 30);
-		idField.setBounds(45, 210, 215, 30);
-		saldoDevedorField.setBounds(110, 250, 150, 30);
+		nomeField.setBounds(10, 58, 249, 30);
+		telefoneField.setBounds(10, 198, 140, 30);
+		enderecofield.setBounds(10, 128, 249, 30);
+		cpfFormatField.setBounds(10, 268, 127, 30);
+		idField.setBounds(204, 198, 42, 30);
+		saldoDevedorField.setBounds(204, 268, 73, 30);
 		
 		nomeField.setText(aluno.getNome());
 		telefoneField.setText(aluno.getTelefone());
@@ -90,11 +110,18 @@ public class TelaDadosAluno extends JFrame {
 		idField.setText(String.valueOf(aluno.getId()));
 		saldoDevedorField.setText(String.valueOf(aluno.getSaldoDevedor()));
 		dataFormatField=new JFormattedTextField(handlerPesquisa.Mascara("##/##/####"));
+		dataFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		getContentPane().add(dataFormatField);
-		dataFormatField.setBounds(159, 289, 100, 30);
+		dataFormatField.setBounds(204, 329, 84, 30);
 		dataFormatField.setText(aluno.getData());
 		
-		setSize(500, 500);
+		lblTelaDados = new JLabel("Tela Dados");
+		lblTelaDados.setForeground(Color.CYAN);
+		lblTelaDados.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 20));
+		lblTelaDados.setBounds(253, 11, 121, 24);
+		getContentPane().add(lblTelaDados);
+		
+		setSize(400, 453);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}
