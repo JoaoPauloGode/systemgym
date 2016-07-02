@@ -2,7 +2,6 @@ package view;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Toolkit;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -39,8 +38,6 @@ public class TelaInicial extends JFrame {
 		getContentPane().setBackground(Color.BLACK);
 		getContentPane().setForeground(Color.BLACK);
 		setBackground(Color.BLACK);
-		
-		setIconImage(Toolkit.getDefaultToolkit().getImage("res\\qn.jpg"));
 		
 		handlerR=new RadioButtonHandler(this);
 		handlerCadAl=new ButtonHandler(this);

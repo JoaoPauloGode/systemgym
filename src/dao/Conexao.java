@@ -13,7 +13,7 @@ public class Conexao {
 		try{
 				Class.forName("com.mysql.jdbc.Driver");
 				String url = "jdbc:mysql://localhost:3306/academia";
-				con = DriverManager.getConnection(url,"root","joaopaulo18");
+				con = DriverManager.getConnection(url,"root","");
 				System.out.println("Conexao efetuada com sucesso");
 				return con;
 		}
@@ -21,7 +21,7 @@ public class Conexao {
 			System.out.println("Erro ao abrir conexao com banco:");
 			int escolha=JOptionPane.showConfirmDialog(null, "Caro usuário, inicialize o xampp!");
 			if(escolha==JOptionPane.YES_OPTION) {
-				Runtime.getRuntime().exec("c:\\xampp\\xampp_start");
+				Runtime.getRuntime().exec("C:\\xampp\\xampp_start");
 				JOptionPane.showMessageDialog(null, "Inicie a aplicação novamente para que funcione corretamente");
 			} else if(escolha==JOptionPane.NO_OPTION) {
 				JOptionPane.showMessageDialog(null, "Caro usuário, o programa não funcionará corretamente,\n inicialize o xampp!!!"

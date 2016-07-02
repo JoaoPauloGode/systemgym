@@ -3,6 +3,7 @@ package view;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,6 +28,8 @@ public class TelaLogin extends JFrame {
 
 	public TelaLogin() {
 		super("Tela de Login");
+		
+		setIconImage(Toolkit.getDefaultToolkit().getImage("res\\icon.png"));
 		
 		handlerLogin=new ButtonHandlerTelaLogin(this);
 		
@@ -70,6 +73,7 @@ public class TelaLogin extends JFrame {
 		loginField.setEditable(false);
 		
 		btnNewButton = new JButton("Logar");
+		btnNewButton.setBackground(Color.CYAN);
 		btnNewButton.setBounds(243, 132, 89, 23);
 		getContentPane().add(btnNewButton);
 		btnNewButton.addMouseListener(handlerLogin);

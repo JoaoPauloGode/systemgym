@@ -70,6 +70,7 @@ public class TelaCadastroAluno extends JFrame {
 		nomeField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		
 		cadastroRealizaAlunoButton=new JButton("Cadastrar");
+		cadastroRealizaAlunoButton.setBackground(Color.CYAN);
 		
 		getContentPane().add(nomeField);
 		getContentPane().add(cadastroRealizaAlunoButton);
