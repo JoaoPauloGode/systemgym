@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import dao.Conexao;
+import util.Util;
 import view.TelaListaMensalidades;
 
 public class ButtonHandlerTabelaMensalidades {
@@ -20,7 +21,7 @@ public class ButtonHandlerTabelaMensalidades {
 		
 		ResultSet rs = p.executeQuery();
 		while(rs.next()) {
-			telaListaMensalidades.getModel().addRow(new Object[] {rs.getString("nome"), rs.getString("cpf"), rs.getString("dataCadastro")});
+			telaListaMensalidades.getModel().addRow(new Object[] {rs.getString("nome"), Util.tratadoraDeCPF(rs.getString("cpf")), Util.tratadoraDeData(rs.getString("dataCadastro"))});
 		}
 	}
 }

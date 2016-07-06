@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import dao.Conexao;
+import util.Util;
 import view.TelaListaAlunos;
 
 public class ButtonHandlerTabelaAlunos {
@@ -19,8 +20,8 @@ public class ButtonHandlerTabelaAlunos {
 		PreparedStatement p =  Conexao.con.prepareStatement("select * from alunos order by nome");
 		ResultSet rs = p.executeQuery();
 		while(rs.next()) {
-			telaListaAlunos.getModel().addRow(new Object[] {rs.getString("nome"), rs.getString("telefone"), 
-					rs.getString("endereco"), rs.getString("cpf"), rs.getString("saldoDevedor")});
+			telaListaAlunos.getModel().addRow(new Object[] {rs.getString("nome"), Util.tratadoraDeTelefone(rs.getString("telefone")), 
+					rs.getString("endereco"), Util.tratadoraDeCPF(rs.getString("cpf")), rs.getString("saldoDevedor")});
 		}
 	}
 }
