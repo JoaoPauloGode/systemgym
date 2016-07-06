@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
-import javax.swing.text.MaskFormatter;
 
 import dao.CRUD;
 import model.Aluno;
@@ -37,18 +36,7 @@ public class ButtonHandlerCadastroAluno implements ActionListener {
 			telaCadastroAluno.getTelefoneFormatField().setText("");
 			telaCadastroAluno.getEnderecoField().setText("");
 			telaCadastroAluno.getCpfFormatField().setText("");
-
+			telaCadastroAluno.getDataFormatField().setText("");
 		}
-	}
-
-	public MaskFormatter Mascara(String Mascara) {
-		MaskFormatter F_Mascara = new MaskFormatter();
-		try {
-			F_Mascara.setMask(Mascara);
-			F_Mascara.setPlaceholderCharacter(' ');
-		} catch (Exception excecao) {
-			excecao.printStackTrace();
-		}
-		return F_Mascara;
 	}
 }

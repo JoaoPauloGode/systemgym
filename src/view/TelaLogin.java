@@ -56,7 +56,7 @@ public class TelaLogin extends JFrame {
 		lblSenha.setBounds(45, 85, 61, 14);
 		getContentPane().add(lblSenha);
 		
-		trocaSenhaLabel = new JLabel("<html><u>Alterar senha</u></html>");
+		trocaSenhaLabel = new JLabel("<html><u>Alterar Senha</u></html>");
 		trocaSenhaLabel.setBounds(279, 11, 86, 20);
 		trocaSenhaLabel.setForeground(Color.CYAN);
 		getContentPane().add(trocaSenhaLabel);

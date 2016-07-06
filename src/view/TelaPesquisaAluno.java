@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import control.ButtonHandlerPesquisa;
+import util.Util;
 
 public class TelaPesquisaAluno extends JFrame {
 
@@ -37,7 +38,7 @@ public class TelaPesquisaAluno extends JFrame {
 		getContentPane().add(nomeLabel);
 		nomeLabel.setBounds(20, 20, 166, 30);
 
-		cpfFormatField=new JFormattedTextField(handlerPesquisa.Mascara("###.###.###-##"));
+		cpfFormatField=new JFormattedTextField(Util.Mascara("###.###.###-##"));
 		cpfFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		getContentPane().add(cpfFormatField);
 		cpfFormatField.setBounds(20, 52, 130, 30);

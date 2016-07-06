@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import control.ButtonHandlerPesquisa;
 import dao.CRUD;
 import model.Aluno;
+import util.Util;
 
 public class TelaDadosAluno extends JFrame {
 
@@ -82,7 +83,7 @@ public class TelaDadosAluno extends JFrame {
 		telefoneField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		enderecofield=new JTextField(aluno.getEndereco());
 		enderecofield.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
-		cpfFormatField=new JFormattedTextField(handlerPesquisa.Mascara("###.###.###-##"));
+		cpfFormatField=new JFormattedTextField(Util.Mascara("###.###.###-##"));
 		cpfFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		idField=new JTextField(aluno.getId());
 		idField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
@@ -109,7 +110,7 @@ public class TelaDadosAluno extends JFrame {
 		cpfFormatField.setText(aluno.getCPF());
 		idField.setText(String.valueOf(aluno.getId()));
 		saldoDevedorField.setText(String.valueOf(aluno.getSaldoDevedor()));
-		dataFormatField=new JFormattedTextField(handlerPesquisa.Mascara("##/##/####"));
+		dataFormatField=new JFormattedTextField(Util.Mascara("##/##/####"));
 		dataFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		getContentPane().add(dataFormatField);
 		dataFormatField.setBounds(204, 329, 84, 30);

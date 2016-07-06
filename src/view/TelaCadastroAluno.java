@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerCadastroAluno;
+import util.Util;
 
 public class TelaCadastroAluno extends JFrame {
 	
@@ -81,16 +82,16 @@ public class TelaCadastroAluno extends JFrame {
 		enderecoField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		enderecoField.setBounds(227, 94, 218, 30);
 		getContentPane().add(enderecoField);
-		telefoneFormatField=new JFormattedTextField(handlerAluno.Mascara("(##)#.####-####"));
+		telefoneFormatField=new JFormattedTextField(Util.Mascara("(##)#.####-####"));
 		telefoneFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		telefoneFormatField.setBounds(179, 175, 137, 30);
 		getContentPane().add(telefoneFormatField);
-		dataFormatField=new JFormattedTextField(handlerAluno.Mascara("##/##/####"));
+		dataFormatField=new JFormattedTextField(Util.Mascara("##/##/####"));
 		dataFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		dataFormatField.setBounds(369, 175, 76, 30);
 		getContentPane().add(dataFormatField);
 		dataFormatField.setToolTipText("Data de matricula do aluno");
-		cpfFormatField=new JFormattedTextField(handlerAluno.Mascara("###.###.###-##"));
+		cpfFormatField=new JFormattedTextField(Util.Mascara("###.###.###-##"));
 		cpfFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		cpfFormatField.setBounds(10, 175, 137, 30);
 		getContentPane().add(cpfFormatField);

@@ -13,7 +13,7 @@ public class Conexao {
 		try{
 				Class.forName("com.mysql.jdbc.Driver");
 				String url = "jdbc:mysql://localhost:3306/academia";
-				con = DriverManager.getConnection(url,"root","");
+				con = DriverManager.getConnection(url,"root","joaopaulo18");
 				System.out.println("Conexao efetuada com sucesso");
 				return con;
 		}

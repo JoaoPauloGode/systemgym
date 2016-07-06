@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import control.ButtonHandlerRemoveAluno;
+import util.Util;
 
 public class TelaRemoverAluno extends JFrame {
 	
@@ -39,7 +40,7 @@ public class TelaRemoverAluno extends JFrame {
 		getContentPane().add(cpfLabel);
 		cpfLabel.setBounds(20, 20, 200, 30);
 		
-		cpfFormatField=new JFormattedTextField(handlerAluno.Mascara("###.###.###-##"));
+		cpfFormatField=new JFormattedTextField(Util.Mascara("###.###.###-##"));
 		cpfFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		getContentPane().add(cpfFormatField);
 		cpfFormatField.setBounds(20, 61, 120, 30);

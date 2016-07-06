@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
-import javax.swing.text.MaskFormatter;
 
 import dao.CRUD;
 import view.TelaVenda;
@@ -38,14 +37,6 @@ public class ButtonHandlerVenda implements ActionListener {
 		}
 	}
 	
-	public MaskFormatter Mascara(String Mascara) {
-		MaskFormatter F_Mascara = new MaskFormatter();
-		try {
-			F_Mascara.setMask(Mascara);
-			F_Mascara.setPlaceholderCharacter(' ');
-		} catch (Exception excecao) {
-			excecao.printStackTrace();
-		}
-		return F_Mascara;
-	}
+	
+
 }

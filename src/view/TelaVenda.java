@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerVenda;
+import util.Util;
+
 import java.awt.Font;
 import java.awt.Color;
 
@@ -37,7 +39,7 @@ public class TelaVenda extends JFrame {
 		cpfLabel.setBounds(20, 20, 160, 30);
 		getContentPane().add(cpfLabel);
 		
-		cpfFormatField=new JFormattedTextField(handlerVenda.Mascara("###.###.###-##"));
+		cpfFormatField=new JFormattedTextField(Util.Mascara("###.###.###-##"));
 		cpfFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		cpfFormatField.setBounds(20, 49, 110, 30);
 		getContentPane().add(cpfFormatField);

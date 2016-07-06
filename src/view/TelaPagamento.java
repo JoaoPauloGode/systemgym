@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import control.ButtonHandlerPagamento;
+import util.Util;
 
 public class TelaPagamento extends JFrame {
 	
@@ -38,7 +39,7 @@ public class TelaPagamento extends JFrame {
 		getContentPane().add(cpfLabel);
 		cpfLabel.setBounds(20, 20, 102, 30);
 		
-		cpfFormatField=new JFormattedTextField(handlerPagamento.Mascara("###.###.###-##"));
+		cpfFormatField=new JFormattedTextField(Util.Mascara("###.###.###-##"));
 		cpfFormatField.setFont(new Font("Arial", Font.BOLD, 14));
 		getContentPane().add(cpfFormatField);
 		cpfFormatField.setBounds(20, 47, 110, 30);

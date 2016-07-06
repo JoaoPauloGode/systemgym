@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import control.ButtonHandlerQuitaMensalidade;
+import util.Util;
 
 public class TelaQuitaMensalidade extends JFrame {
 	
@@ -37,7 +38,7 @@ public class TelaQuitaMensalidade extends JFrame {
 		getContentPane().add(cpfLabel);
 		cpfLabel.setBounds(10, 11, 115, 30);
 		
-		cpfFormatField=new JFormattedTextField(handlerQuitaMensalidade.Mascara("###.###.###-##"));
+		cpfFormatField=new JFormattedTextField(Util.Mascara("###.###.###-##"));
 		cpfFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		getContentPane().add(cpfFormatField);
 		cpfFormatField.setBounds(10, 39, 110, 30);
@@ -48,7 +49,7 @@ public class TelaQuitaMensalidade extends JFrame {
 		getContentPane().add(dataLabel);
 		dataLabel.setBounds(10, 86, 110, 30);
 		
-		dataFormatField=new JFormattedTextField(handlerQuitaMensalidade.Mascara("##/##/####"));
+		dataFormatField=new JFormattedTextField(Util.Mascara("##/##/####"));
 		dataFormatField.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
 		getContentPane().add(dataFormatField);
 		dataFormatField.setBounds(10, 115, 80, 30);
